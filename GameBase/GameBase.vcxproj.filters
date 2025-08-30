@@ -17,7 +17,7 @@
     <Filter Include="ソース ファイル\GameObject">
       <UniqueIdentifier>{f8a5ae9e-9166-4773-8852-2c111d8f3cd9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GameObject\NewFilter1">
+    <Filter Include="ソース ファイル\GameObject\Stage">
       <UniqueIdentifier>{336fe2e2-ebe3-4a6c-b772-a311470c35a0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -37,6 +37,9 @@
     <ClCompile Include="SceneManager.cpp">
       <Filter>ソース ファイル\SceneLibrary</Filter>
     </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>ソース ファイル\GameObject\Stage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -53,6 +56,9 @@
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>ソース ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>ソース ファイル\GameObject\Stage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

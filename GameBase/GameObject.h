@@ -4,6 +4,7 @@
 class IGameObject
 {
 public:
+	IGameObject(const std::string& name = ""):name(name){}
 	virtual ~IGameObject() = default;
 	virtual void Init() abstract;
 	virtual void Load() abstract;
