@@ -14,6 +14,12 @@
     <Filter Include="ソース ファイル\SceneLibrary">
       <UniqueIdentifier>{54c5d2a0-daee-4c1a-b26d-078c703eea28}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameObject">
+      <UniqueIdentifier>{f8a5ae9e-9166-4773-8852-2c111d8f3cd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\NewFilter1">
+      <UniqueIdentifier>{336fe2e2-ebe3-4a6c-b772-a311470c35a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -44,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>ソース ファイル\SceneLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>ソース ファイル\GameObject</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
