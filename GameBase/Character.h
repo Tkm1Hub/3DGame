@@ -3,6 +3,8 @@
 
 class Character :public IGameObject
 {
+public:
+	Character(const std::string& name):IGameObject(name){}
 protected:
 	// ’è”
 	static constexpr float	FallUpPower = 0.05f;			// ‘«‚ğ“¥‚İŠO‚µ‚½‚ÌƒWƒƒƒ“ƒv—Í

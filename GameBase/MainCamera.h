@@ -11,6 +11,8 @@ public:
 
 	void SetCameraPositionAndTarget(const VECTOR& newPos, const VECTOR& newTarget);
 
+	const VECTOR GetForward() const { return forward; }
+
 private:
 	// 定数
 	static constexpr float CAMERA_NEAR = 0.5f;
@@ -26,7 +28,7 @@ private:
 	float angleH = 0.0f;								// 水平角度
 	float angleV = 0.0f;								// 垂直視点
 	float currentAngleSpeed = 0.0f;						// 現在のアングル変更速度
-	bool isMoveAngle = 0.0f;							// カメラが移動中かどうか
+	bool isMoveAngle = false;							// カメラが移動中かどうか
 
 	void moveSmoothing();	// スムーズ移動
 };

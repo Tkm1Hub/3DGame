@@ -3,8 +3,8 @@
 
 void MainCamera::Init()
 {
-	pos = VGet(0.0f, 0.0f, 0.0f);
-	currentTarget = VGet(0.0f, 0.0f, 0.1f);
+	pos = VGet(0.0f, 50.0f, -30.0f);
+	currentTarget = VGet(0.0f, 30.0f, 0.1f);
 	SetCameraNearFar(CAMERA_NEAR, CAMERA_FAR);
 }
 

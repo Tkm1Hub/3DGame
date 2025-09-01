@@ -5,7 +5,7 @@ class IGameObject
 {
 public:
 	IGameObject(const std::string& name = ""):name(name){}
-	virtual ~IGameObject() = default;
+	virtual ~IGameObject() {}
 	virtual void Init()		{/*デフォルトでは何も実装しない*/}
 	virtual void Load()		{/*デフォルトでは何も実装しない*/}
 	virtual void Update()	{/*デフォルトでは何も実装しない*/}

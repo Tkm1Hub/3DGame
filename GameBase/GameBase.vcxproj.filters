@@ -23,9 +23,6 @@
     <Filter Include="ソース ファイル\ObjectManager">
       <UniqueIdentifier>{35d94c7c-3d3d-4b6a-9b88-00ce3026042e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GameObject\MainCamera">
-      <UniqueIdentifier>{c9c684bf-aae2-4cfc-9c2c-c28a4d729b5f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\GameObject\SkyDome">
       <UniqueIdentifier>{e5e621b2-f803-4996-be2f-06698306c296}</UniqueIdentifier>
     </Filter>
@@ -34,6 +31,27 @@
     </Filter>
     <Filter Include="ソース ファイル\GameObject\Character\Player">
       <UniqueIdentifier>{a7c90c65-72b4-47ca-bea0-b1adcb8febb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Camera">
+      <UniqueIdentifier>{bba79c2c-8268-432d-95e8-2f988057e8fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Camera\MainCamera">
+      <UniqueIdentifier>{c9c684bf-aae2-4cfc-9c2c-c28a4d729b5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Camera\VirtualCamera">
+      <UniqueIdentifier>{cb94cb89-a238-45c9-afa5-0a0629d83193}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Camera\VirtualCamera\FreeCamera">
+      <UniqueIdentifier>{e63067cc-98ae-4f7a-8586-e23e1848b0fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Input">
+      <UniqueIdentifier>{91950adc-c156-408e-88c5-ec90138a7c62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\CameraSelector">
+      <UniqueIdentifier>{26d4197e-9320-4d73-a944-e88ac78e69e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\CameraManager">
+      <UniqueIdentifier>{e9f226b0-c3b3-4bdf-907b-26d7ce5cd71a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -59,10 +77,25 @@
       <Filter>ソース ファイル\ObjectManager</Filter>
     </ClCompile>
     <ClCompile Include="MainCamera.cpp">
-      <Filter>ソース ファイル\GameObject\MainCamera</Filter>
+      <Filter>ソース ファイル\GameObject\Camera\MainCamera</Filter>
     </ClCompile>
     <ClCompile Include="SkyDome.cpp">
       <Filter>ソース ファイル\GameObject\SkyDome</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ソース ファイル\GameObject\Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeCamera.cpp">
+      <Filter>ソース ファイル\GameObject\Camera\VirtualCamera\FreeCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>ソース ファイル\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraSelector.cpp">
+      <Filter>ソース ファイル\CameraSelector</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraManager.cpp">
+      <Filter>ソース ファイル\CameraManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,13 +121,31 @@
       <Filter>ソース ファイル\ObjectManager</Filter>
     </ClInclude>
     <ClInclude Include="MainCamera.h">
-      <Filter>ソース ファイル\GameObject\MainCamera</Filter>
+      <Filter>ソース ファイル\GameObject\Camera\MainCamera</Filter>
     </ClInclude>
     <ClInclude Include="SkyDome.h">
       <Filter>ソース ファイル\GameObject\SkyDome</Filter>
     </ClInclude>
     <ClInclude Include="Character.h">
       <Filter>ソース ファイル\GameObject\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ソース ファイル\GameObject\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeCamera.h">
+      <Filter>ソース ファイル\GameObject\Camera\VirtualCamera\FreeCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>ソース ファイル\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraSelector.h">
+      <Filter>ソース ファイル\CameraSelector</Filter>
+    </ClInclude>
+    <ClInclude Include="VirtualCameraBase.h">
+      <Filter>ソース ファイル\GameObject\Camera\VirtualCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraManager.h">
+      <Filter>ソース ファイル\CameraManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
