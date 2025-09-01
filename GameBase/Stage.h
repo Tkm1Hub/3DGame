@@ -3,6 +3,7 @@
 
 class Stage :public IGameObject
 {
+public:
 	Stage(const std::string& name) : IGameObject(name){}
 
 	void Init() override;

@@ -1,13 +1,31 @@
 #include "stdafx.h"
 #include "GameScene.h"
+#include "ObjectManager.h"
 
 GameScene::GameScene(SceneManager& manager)
-	: Scene{manager}{ }
+	: Scene{manager}{
+	Init();
+}
 
 GameScene::~GameScene() {}
 
-void GameScene::Init(){}
+void GameScene::Init()
+{
+	objectMgr = std::make_shared<ObjectManager>();
 
-void GameScene::Update(){}
+	objectMgr->Create();
 
-void GameScene::Draw()const {}
+	objectMgr->InitAll();
+
+	objectMgr->LoadAll();
+}
+
+void GameScene::Update()
+{
+	objectMgr->UpdateAll();
+}
+
+void GameScene::Draw()const
+{
+	objectMgr->DrawAll();
+}

@@ -20,6 +20,21 @@
     <Filter Include="ソース ファイル\GameObject\Stage">
       <UniqueIdentifier>{336fe2e2-ebe3-4a6c-b772-a311470c35a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\ObjectManager">
+      <UniqueIdentifier>{35d94c7c-3d3d-4b6a-9b88-00ce3026042e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\MainCamera">
+      <UniqueIdentifier>{c9c684bf-aae2-4cfc-9c2c-c28a4d729b5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\SkyDome">
+      <UniqueIdentifier>{e5e621b2-f803-4996-be2f-06698306c296}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Character">
+      <UniqueIdentifier>{f7f876e4-04d4-41b5-91f4-0246d8f516eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Character\Player">
+      <UniqueIdentifier>{a7c90c65-72b4-47ca-bea0-b1adcb8febb2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -40,6 +55,15 @@
     <ClCompile Include="Stage.cpp">
       <Filter>ソース ファイル\GameObject\Stage</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>ソース ファイル\ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCamera.cpp">
+      <Filter>ソース ファイル\GameObject\MainCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyDome.cpp">
+      <Filter>ソース ファイル\GameObject\SkyDome</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -59,6 +83,18 @@
     </ClInclude>
     <ClInclude Include="Stage.h">
       <Filter>ソース ファイル\GameObject\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>ソース ファイル\ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCamera.h">
+      <Filter>ソース ファイル\GameObject\MainCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyDome.h">
+      <Filter>ソース ファイル\GameObject\SkyDome</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>ソース ファイル\GameObject\Character</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
