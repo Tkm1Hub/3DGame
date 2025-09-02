@@ -3,23 +3,28 @@
 #include "Input.h"
 #include "Player.h"
 
-void FreeCamera::SetPlayer(const std::shared_ptr<Player>& playerPtr)
+void FreeCamera::SetPlayer(const std::weak_ptr<Player>& playerPtr)
 {
 	player = playerPtr;
 }
 
 void FreeCamera::Update()
 {
+	if (auto p = player.lock())
+	{
+		VECTOR playerPos = p->GetPosition();
+
 	// カメラの旋回速度を計算
 	currentAngleSpeed = CalcAngleSpeed();
 
 	CalcCameraAngle();
 
 	//カメラの注視点はプレイヤー座標から規定値分高い座標
-	target = VAdd(player->GetPosition(), VGet(0.0f, LOOK_OFFSET_Y, 0.0f));
+	target = VAdd(playerPos, VGet(0.0f, LOOK_OFFSET_Y, 0.0f));
 
 	// カメラの座標を補正する
 	FixCameraPosition();
+	}
 }
 
 void FreeCamera::CalcCameraAngle()

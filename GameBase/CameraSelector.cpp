@@ -3,18 +3,17 @@
 #include "FreeCamera.h"
 #include "MainCamera.h"
 
-void CameraSelector::SetObjects(const std::vector<std::shared_ptr<IGameObject>>& objectsPtr)
+void CameraSelector::Update(std::shared_ptr<MainCamera>& mainCamera)
 {
-	objects = objectsPtr;
-}
+	if (!cameraList || cameraList->empty()) return;
 
-void CameraSelector::Update()
-{
+	auto& currentCam = (*cameraList)[currentIndex];
+
 	VECTOR nextPos = VGet(0.0f, 0.0f, 0.0f);
 	VECTOR nextTarget = VGet(0.0f, 0.0f, 0.0f);
 
-	nextPos = freeCamera->GetPosition();
-	nextTarget = freeCamera->GetTarget();
+	nextPos = currentCam->GetPosition();
+	nextTarget = currentCam->GetTarget();
 
 	mainCamera->SetCameraPositionAndTarget(nextPos, nextTarget);
 	

@@ -7,7 +7,7 @@ class FreeCamera : public VirtualCameraBase
 public:
 	FreeCamera(const std::string& name): VirtualCameraBase(name){}
 
-	void SetPlayer(const std::shared_ptr<Player>& playerPtr);
+	void SetPlayer(const std::weak_ptr<Player>& playerPtr);
 
 	void Update() override;
 
@@ -27,7 +27,7 @@ private:
 	float angleV = 0.0f;								// 垂直角度
 	bool isMoveAngle = false;							// カメラが移動中か
 
-	std::shared_ptr<Player> player = nullptr;
+	std::weak_ptr<Player> player;
 
 	void CalcCameraAngle();		// カメラのアングルを計算
 	float CalcAngleSpeed();		// カメラの旋回速度を計算

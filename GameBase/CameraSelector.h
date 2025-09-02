@@ -1,35 +1,24 @@
 #pragma once
+#include "VirtualCameraBase.h"
 
 class IGameObject;
 class MainCamera;
 class FreeCamera;
-enum class CameraMode
-{
-	Free,
-	Focus,
-};
 
 class CameraSelector
 {
 public:
-	void SetObjects(const std::vector<std::shared_ptr<IGameObject>>& objectsPtr);
-
-	void SetFreeCamera(const std::shared_ptr<FreeCamera>& freeCameraPtr)
-	{
-		freeCamera = freeCameraPtr;
+	CameraSelector(std::vector<std::shared_ptr<VirtualCameraBase>>* list)
+		: cameraList(list) {
 	}
 
-	void SetMainCamera(const std::shared_ptr<MainCamera>& mainCameraPtr)
-	{
-		mainCamera = mainCameraPtr;
-	}
+	void SetCurrentIndex(int idx) { currentIndex = idx; }
 
-
-	void Update();
+	void Update(std::shared_ptr<MainCamera>& mainCamera);
 
 private:
-	CameraMode currentMode = CameraMode::Free;
-	std::vector<std::shared_ptr<IGameObject>>objects;
+	int currentIndex = 0;
+	std::vector < std::shared_ptr<VirtualCameraBase>>* cameraList;
 	std::shared_ptr<MainCamera> mainCamera = nullptr;
-	std::shared_ptr<FreeCamera> freeCamera = nullptr;
+
 };
