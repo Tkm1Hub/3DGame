@@ -5,6 +5,8 @@ class Character :public IGameObject
 {
 public:
 	Character(const std::string& name):IGameObject(name){}
+	void SetMoveVec(VECTOR newMoveVec) { moveVec = newMoveVec; }
+	void SetJumpPower(float newJumpPower) { currentJumpPower; }
 protected:
 	// ’è”
 	static constexpr float	FallUpPower = 0.05f;			// ‘«‚ğ“¥‚İŠO‚µ‚½‚ÌƒWƒƒƒ“ƒv—Í

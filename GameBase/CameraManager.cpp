@@ -20,6 +20,7 @@ void CameraManager::Create()
 
 	// インスタンス化
 	mainCamera = std::make_shared<MainCamera>("MainCamera");
+	mainCamera->Init();
 	freeCamera = std::make_shared<FreeCamera>("FreeCamera");
 
 	freeCamera->SetPlayer(player);

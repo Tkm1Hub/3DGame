@@ -1,6 +1,14 @@
 #pragma once
 #include "Character.h"
-class StateMachine;
+#include "StateMachine.h"
+
+// パラメータ
+struct PlayerParams
+{
+	float JumpPower = 2.5f;		// ジャンプ力
+	float Gravity = 0.08f;		// 重力
+};
+
 class Player :public Character
 {
 public:
@@ -11,6 +19,10 @@ public:
 	void Update() override;
 	void Draw() override;
 
+	PlayerParams params;		// パラメータ
+	
+
 private:
-	// ステートマシン
+	StateMachine stateMachine;	// ステートマシン
+
 };

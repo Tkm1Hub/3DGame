@@ -62,6 +62,18 @@
     <Filter Include="ソース ファイル\State\StateMachine">
       <UniqueIdentifier>{be46c1d3-5cac-4bfe-9a9b-6ee1f1ba022a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\State\PlayerState">
+      <UniqueIdentifier>{75c1acf0-78ff-407f-b008-731d8dbaf62c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State\PlayerState\Stand">
+      <UniqueIdentifier>{5236d403-d58c-4ac1-8154-58f7e3839f39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State\PlayerState\Jump">
+      <UniqueIdentifier>{e948ef37-f086-41be-8652-5453ad945786}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State\PlayerState\Walk">
+      <UniqueIdentifier>{7a0ecb1a-8e82-419c-90e5-b7c6be2f47c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -108,6 +120,15 @@
     </ClCompile>
     <ClCompile Include="Debug.cpp">
       <Filter>ソース ファイル\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_StandState.cpp">
+      <Filter>ソース ファイル\State\PlayerState\Stand</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_JumpState.cpp">
+      <Filter>ソース ファイル\State\PlayerState\Jump</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_WalkState.cpp">
+      <Filter>ソース ファイル\State\PlayerState\Walk</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +188,18 @@
     </ClInclude>
     <ClInclude Include="StateMachine.h">
       <Filter>ソース ファイル\State\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerStateBase.h">
+      <Filter>ソース ファイル\State\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_StandState.h">
+      <Filter>ソース ファイル\State\PlayerState\Stand</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_JumpState.h">
+      <Filter>ソース ファイル\State\PlayerState\Jump</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_WalkState.h">
+      <Filter>ソース ファイル\State\PlayerState\Walk</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
