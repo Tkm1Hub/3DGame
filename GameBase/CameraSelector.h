@@ -8,7 +8,7 @@ class FreeCamera;
 class CameraSelector
 {
 public:
-	CameraSelector(std::vector<std::shared_ptr<VirtualCameraBase>>* list)
+	CameraSelector(std::shared_ptr<std::vector<std::shared_ptr<VirtualCameraBase>>> list)
 		: cameraList(list) {
 	}
 
@@ -18,7 +18,7 @@ public:
 
 private:
 	int currentIndex = 0;
-	std::vector < std::shared_ptr<VirtualCameraBase>>* cameraList;
+	std::shared_ptr<std::vector<std::shared_ptr<VirtualCameraBase>>> cameraList;
 	std::shared_ptr<MainCamera> mainCamera = nullptr;
 
 };

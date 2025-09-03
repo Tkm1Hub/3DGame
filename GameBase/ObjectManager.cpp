@@ -7,16 +7,10 @@
 #include "Player.h"
 void ObjectManager::Create()
 {
-	camera = std::make_shared<MainCamera>("MainCamera");
-	freeCamera = std::make_shared<FreeCamera>("FreeCamera");
 	skyDome = std::make_shared<SkyDome>("SkyDome");
 	stage = std::make_shared<Stage>("Stage");
 	player = std::make_shared<Player>("Player");
 
-	freeCamera->SetPlayer(player);
-
-	AddObject(camera);
-	AddObject(freeCamera);
 	AddObject(skyDome);
 	AddObject(stage);
 	AddObject(player);

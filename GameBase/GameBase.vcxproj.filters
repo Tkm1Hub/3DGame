@@ -53,6 +53,15 @@
     <Filter Include="ソース ファイル\CameraManager">
       <UniqueIdentifier>{e9f226b0-c3b3-4bdf-907b-26d7ce5cd71a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Debug">
+      <UniqueIdentifier>{1f10b1b1-9c84-4b89-bac0-5493dfbb5bec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State">
+      <UniqueIdentifier>{32d399ca-8198-48bc-8046-9d77037af4d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State\StateMachine">
+      <UniqueIdentifier>{be46c1d3-5cac-4bfe-9a9b-6ee1f1ba022a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -96,6 +105,9 @@
     </ClCompile>
     <ClCompile Include="CameraManager.cpp">
       <Filter>ソース ファイル\CameraManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>ソース ファイル\Debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +158,15 @@
     </ClInclude>
     <ClInclude Include="CameraManager.h">
       <Filter>ソース ファイル\CameraManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>ソース ファイル\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="StateBase.h">
+      <Filter>ソース ファイル\State</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine.h">
+      <Filter>ソース ファイル\State\StateMachine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

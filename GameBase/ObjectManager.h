@@ -22,8 +22,6 @@ public:
 private:
 	std::vector<std::shared_ptr<IGameObject>> objects;
 
-	std::shared_ptr<MainCamera> camera = nullptr;
-	std::shared_ptr<FreeCamera> freeCamera = nullptr;
 	std::shared_ptr<SkyDome> skyDome = nullptr;
 	std::shared_ptr<Stage> stage = nullptr;
 	std::shared_ptr<Player> player = nullptr;

@@ -5,7 +5,17 @@
 
 void CameraSelector::Update(std::shared_ptr<MainCamera>& mainCamera)
 {
-	if (!cameraList || cameraList->empty()) return;
+    if (!cameraList) {
+        // cameraListがnullptrの場合、ここで警告メッセージを出す
+        std::cerr << "cameraList is nullptr!" << std::endl;
+        return;
+    }
+
+    if (cameraList->empty()) {
+        // cameraListが空の場合、ここで警告メッセージを出す
+        std::cerr << "cameraList is empty!" << std::endl;
+        return;
+    }
 
 	auto& currentCam = (*cameraList)[currentIndex];
 

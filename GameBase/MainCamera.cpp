@@ -33,7 +33,7 @@ void MainCamera::SetCameraPositionAndTarget(const VECTOR& newPos, const VECTOR& 
 void MainCamera::moveSmoothing()
 {
 	// 目標地点と現在位置の差を取得
-	VECTOR diff = VSub(nextPosition, currentPosition);
+	VECTOR diff = VSub(nextPosition, pos);
 	VECTOR targetDiff = VSub(nextTarget, currentTarget);
 
 	// 差にスムージングをかける
@@ -41,6 +41,6 @@ void MainCamera::moveSmoothing()
 	targetDiff = VScale(targetDiff, SMOOTHING);
 
 	// 現在位置に加算
-	currentPosition = VAdd(currentPosition, diff);
+	pos = VAdd(pos, diff);
 	currentTarget = VAdd(currentTarget, targetDiff);
 }

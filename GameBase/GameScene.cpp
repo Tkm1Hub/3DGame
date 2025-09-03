@@ -2,6 +2,7 @@
 #include "GameScene.h"
 #include "ObjectManager.h"
 #include "CameraManager.h"
+#include "Input.h"
 GameScene::GameScene(SceneManager& manager)
 	: Scene{manager}{
 	Init();
@@ -35,6 +36,7 @@ void GameScene::Init()
 
 void GameScene::Update()
 {
+	Input::GetInput().Update();
 	objectMgr->UpdateAll();
 	cameraMgr->Update();
 	

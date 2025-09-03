@@ -1,6 +1,6 @@
 #pragma once
 #include "Character.h"
-
+class StateMachine;
 class Player :public Character
 {
 public:
@@ -11,5 +11,6 @@ public:
 	void Update() override;
 	void Draw() override;
 
-
+private:
+	// ステートマシン
 };

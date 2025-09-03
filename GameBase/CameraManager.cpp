@@ -19,16 +19,17 @@ void CameraManager::Create()
 	}
 
 	// インスタンス化
-	mainCamera = std::make_shared<MainCamera>();
-	freeCamera = std::make_shared<FreeCamera>();
+	mainCamera = std::make_shared<MainCamera>("MainCamera");
+	freeCamera = std::make_shared<FreeCamera>("FreeCamera");
 
 	freeCamera->SetPlayer(player);
 
 	// カメラをリストに追加
 	AddCamera(freeCamera);
 
-	cameraSelector = std::make_shared<CameraSelector>(cameras);
+	auto cameraList = std::make_shared<std::vector<std::shared_ptr<VirtualCameraBase>>>(cameras);
 
+	cameraSelector = std::make_shared<CameraSelector>(cameraList);
 }
 
 void CameraManager::AddCamera(std::shared_ptr<VirtualCameraBase> camera)
@@ -49,4 +50,6 @@ void CameraManager::Update()
 	}
 
 	cameraSelector->Update(mainCamera);
+	mainCamera->Update();
+	printf("cameraPos[%f,%f,%f]\n", mainCamera->GetPosition().x, mainCamera->GetPosition().y, mainCamera->GetPosition().z);
 }
