@@ -1,6 +1,7 @@
 #pragma once
 #include "StateBase.h"
-#include "Player.h"
+
+class Player;
 class PlayerStateBase : public StateBase
 {
 public:

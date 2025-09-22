@@ -1,14 +1,17 @@
 #pragma once
 #include "Character.h"
 #include "StateMachine.h"
+#include "PlayerStateBase.h"
 
 // パラメータ
 struct PlayerParams
 {
 	float JumpPower = 2.5f;		// ジャンプ力
 	float Gravity = 0.08f;		// 重力
+	float MoveSpeed = 0.5f;		// 移動速度
 };
 
+class PayerStateBase;
 class Player :public Character
 {
 public:
@@ -19,10 +22,14 @@ public:
 	void Update() override;
 	void Draw() override;
 
+	void ChangeState(std::shared_ptr<PlayerStateBase> a_spState);
+
 	PlayerParams params;		// パラメータ
 	
 
 private:
 	StateMachine stateMachine;	// ステートマシン
+
+	void Move(const VECTOR& moveVec);	// モデルの移動
 
 };

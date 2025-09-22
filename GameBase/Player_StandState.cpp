@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Player_StandState.h"
+#include "Player_WalkState.h"
+#include "Player.h"
 #include "Input.h"
 
 void Player_StandState::OnStart()
@@ -14,7 +16,9 @@ void Player_StandState::OnUpdate()
 	// 左スティックが入力中なら移動
 	if (Input::GetInput().GetIsMoveLStick())
 	{
-
+		auto spStandState = std::make_shared<Player_WalkState>();
+		m_pPlayer->ChangeState(spStandState);
+		return;
 	}
 
 	// A（３）ボタンでジャンプ

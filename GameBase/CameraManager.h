@@ -7,7 +7,23 @@ class CameraSelector;
 class Player;
 class CameraManager
 {
+private:
+	// コンストラクタを非公開にする
+	CameraManager(){}
+
+	// コピーコンストラクタと代入演算子を削除
+	CameraManager(const CameraManager&) = delete;
+	CameraManager& operator=(const CameraManager&) = delete;
+
+	~CameraManager(){}
 public:
+	// インスタンスを取得するためのメソッド
+	static CameraManager& GetCameraManager()
+	{
+		static CameraManager instance;
+		return instance;
+	}
+
 	void SetObjects(std::vector<std::weak_ptr<IGameObject>>objectsPtr)
 	{
 		objects = objectsPtr;

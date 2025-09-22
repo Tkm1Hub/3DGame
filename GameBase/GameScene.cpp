@@ -13,7 +13,6 @@ GameScene::~GameScene() {}
 void GameScene::Init()
 {
 	objectMgr = std::make_shared<ObjectManager>();
-	cameraMgr = std::make_shared<CameraManager>();
 
 	objectMgr->Create();
 
@@ -23,10 +22,8 @@ void GameScene::Init()
 		weakObjects.push_back(obj);
 	}
 
-	cameraMgr->SetObjects(weakObjects);
-
-	cameraMgr->Create();
-
+	CameraManager::GetCameraManager().SetObjects(weakObjects);
+	CameraManager::GetCameraManager().Create();
 
 	objectMgr->InitAll();
 
@@ -38,7 +35,7 @@ void GameScene::Update()
 {
 	Input::GetInput().Update();
 	objectMgr->UpdateAll();
-	cameraMgr->Update();
+	CameraManager::GetCameraManager().Update();
 	
 }
 

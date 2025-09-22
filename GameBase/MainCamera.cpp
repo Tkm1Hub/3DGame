@@ -14,6 +14,7 @@ void MainCamera::Update()
 
 	// ƒJƒƒ‰‚Ì•ûŒü‚ğ•Û‘¶
 	forward = VSub(pos, currentTarget);
+	forward.y = 0.0f;
 	forward = VNorm(forward);
 
 	// ˆÊ’u‚Æ’‹“_‚Ìİ’è

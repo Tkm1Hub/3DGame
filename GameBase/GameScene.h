@@ -2,7 +2,6 @@
 #include "Scene.h"
 
 class ObjectManager;
-class CameraManager;
 class GameScene :public Scene
 {
 public:
@@ -22,5 +21,4 @@ public:
 
 private:
     std::shared_ptr<ObjectManager> objectMgr = nullptr;
-    std::shared_ptr<CameraManager> cameraMgr = nullptr;
 };
