@@ -22,7 +22,7 @@ void CameraManager::Create()
 	mainCamera = std::make_shared<MainCamera>("MainCamera");
 	mainCamera->Init();
 	freeCamera = std::make_shared<FreeCamera>("FreeCamera");
-
+	freeCamera->Init();
 	freeCamera->SetPlayer(player);
 
 	// ƒJƒƒ‰‚ğƒŠƒXƒg‚É’Ç‰Á

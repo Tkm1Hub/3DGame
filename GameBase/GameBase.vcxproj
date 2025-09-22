@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="CameraSelector.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="FreeCamera.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="CameraManager.h" />
     <ClInclude Include="CameraSelector.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="PlayerStateBase.h" />
     <ClInclude Include="Player_JumpState.h" />
     <ClInclude Include="Player_StandState.h" />

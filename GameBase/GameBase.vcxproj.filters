@@ -47,9 +47,6 @@
     <Filter Include="ソース ファイル\Input">
       <UniqueIdentifier>{91950adc-c156-408e-88c5-ec90138a7c62}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\CameraSelector">
-      <UniqueIdentifier>{26d4197e-9320-4d73-a944-e88ac78e69e8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\CameraManager">
       <UniqueIdentifier>{e9f226b0-c3b3-4bdf-907b-26d7ce5cd71a}</UniqueIdentifier>
     </Filter>
@@ -73,6 +70,15 @@
     </Filter>
     <Filter Include="ソース ファイル\State\PlayerState\Walk">
       <UniqueIdentifier>{7a0ecb1a-8e82-419c-90e5-b7c6be2f47c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\CameraManager\CameraSelector">
+      <UniqueIdentifier>{26d4197e-9320-4d73-a944-e88ac78e69e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\CollisionManager">
+      <UniqueIdentifier>{0aa61170-7bad-486f-aca0-5a0bbadbb23f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\CollisionManager\StageCollision">
+      <UniqueIdentifier>{67d2399f-7dfa-43a6-8777-d3bdd53cb2c8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -113,7 +119,7 @@
       <Filter>ソース ファイル\Input</Filter>
     </ClCompile>
     <ClCompile Include="CameraSelector.cpp">
-      <Filter>ソース ファイル\CameraSelector</Filter>
+      <Filter>ソース ファイル\CameraManager\CameraSelector</Filter>
     </ClCompile>
     <ClCompile Include="CameraManager.cpp">
       <Filter>ソース ファイル\CameraManager</Filter>
@@ -129,6 +135,9 @@
     </ClCompile>
     <ClCompile Include="Player_WalkState.cpp">
       <Filter>ソース ファイル\State\PlayerState\Walk</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>ソース ファイル\CollisionManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,7 +181,7 @@
       <Filter>ソース ファイル\Input</Filter>
     </ClInclude>
     <ClInclude Include="CameraSelector.h">
-      <Filter>ソース ファイル\CameraSelector</Filter>
+      <Filter>ソース ファイル\CameraManager\CameraSelector</Filter>
     </ClInclude>
     <ClInclude Include="VirtualCameraBase.h">
       <Filter>ソース ファイル\GameObject\Camera\VirtualCamera</Filter>
@@ -200,6 +209,9 @@
     </ClInclude>
     <ClInclude Include="Player_WalkState.h">
       <Filter>ソース ファイル\State\PlayerState\Walk</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>ソース ファイル\CollisionManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

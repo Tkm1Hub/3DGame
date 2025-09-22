@@ -8,6 +8,11 @@ void FreeCamera::SetPlayer(const std::weak_ptr<Player>& playerPtr)
 	player = playerPtr;
 }
 
+void FreeCamera::Init()
+{
+	name = "FreeCamera";
+}
+
 void FreeCamera::Update()
 {
 	if (auto p = player.lock())
@@ -24,6 +29,8 @@ void FreeCamera::Update()
 
 	// ƒJƒƒ‰‚ÌÀ•W‚ğ•â³‚·‚é
 	FixCameraPosition();
+
+	printf("freeCameraPos[%.2f,%.2f,%.2f]\n", pos.x, pos.y, pos.z);
 	}
 }
 

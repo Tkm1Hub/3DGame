@@ -17,8 +17,6 @@ public:
 	void Update(std::shared_ptr<MainCamera>& mainCamera);
 
 private:
-	int currentIndex = 0;
+	int currentIndex = 1;
 	std::shared_ptr<std::vector<std::shared_ptr<VirtualCameraBase>>> cameraList;
-	std::shared_ptr<MainCamera> mainCamera = nullptr;
-
 };

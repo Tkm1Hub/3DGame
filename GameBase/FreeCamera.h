@@ -9,6 +9,7 @@ public:
 
 	void SetPlayer(const std::weak_ptr<Player>& playerPtr);
 
+	void Init();
 	void Update() override;
 
 private:
