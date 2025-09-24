@@ -137,6 +137,7 @@
     <ClCompile Include="CameraSelector.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="Player_FallState.cpp" />
     <ClCompile Include="FreeCamera.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SkyDome.cpp" />
     <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="StageCollision.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -165,6 +167,7 @@
     <ClInclude Include="Player_JumpState.h" />
     <ClInclude Include="Player_StandState.h" />
     <ClInclude Include="Player_WalkState.h" />
+    <ClInclude Include="StageCollision.h" />
     <ClInclude Include="StateBase.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="FreeCamera.h" />
@@ -181,6 +184,7 @@
     <ClInclude Include="StateMachine.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="VirtualCameraBase.h" />
+    <ClInclude Include="Player_FallState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

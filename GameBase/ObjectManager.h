@@ -15,6 +15,7 @@ public:
 	void InitAll();
 	void LoadAll();
 	void UpdateAll();
+	void ApplyCollision();
 	void DrawAll();
 
 	const std::vector<std::shared_ptr<IGameObject>>& GetObjects() const { return objects; }

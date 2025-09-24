@@ -5,8 +5,16 @@ class Character :public IGameObject
 {
 public:
 	Character(const std::string& name):IGameObject(name){}
+
+	float GetCurrentJumpPower() { return currentJumpPower; }
+
 	void SetMoveVec(VECTOR newMoveVec) { moveVec = newMoveVec; }
-	void SetJumpPower(float newJumpPower) { currentJumpPower; }
+	void SetJumpPower(float newJumpPower) { currentJumpPower = newJumpPower; }
+
+	void SetIsMove(bool IsMove) { isMove = IsMove; }
+	void SetIsJumping(bool Isjumping) { isJumping = Isjumping; }
+
+
 protected:
 	// 定数
 	static constexpr float	FallUpPower = 0.05f;			// 足を踏み外した時のジャンプ力
@@ -17,4 +25,5 @@ protected:
 	float angle = 0.0f;										// モデルの角度
 	float currentMoveSpeed = 0.0f;							// 現在の移動速度
 	float currentJumpPower = 0.0f;							// Y軸方向の速度
+	bool isMove = false;
 };

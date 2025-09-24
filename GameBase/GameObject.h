@@ -12,11 +12,32 @@ public:
 	virtual void Draw()		{/*デフォルトでは何も実装しない*/}
 
 	VECTOR GetPosition() const { return pos; }
+	VECTOR GetNextPosition() const { return nextPos; }
+	bool GetIsJumping() { return isJumping; }
+
+	void SetPosition(const VECTOR& newPos) { pos = newPos; }
 	std::string GetName() const { return name; }
+	int GetModelHandle() const { return modelHandle; }
+	bool GetIsStageCollisionEnabled() const { return isStageCollisionEnabled; }
+	bool GetIsCollisionEnabled() const { return isCollisionEnabled; }
+
+	virtual const float GetJumpPower() const { return 0; }
+	// 当たり判定
+	virtual const float GetHitRadius() const { return 0; }
+	virtual const float GetHitHeight() const { return 0; }
+
+	virtual void OnFall() {/*デフォルトでは何も実装しない*/ }
+	virtual void OnHitFloor() {/*デフォルトでは何も実装しない*/ }
+	virtual void OnHitRoof() {/*デフォルトでは何も実装しない*/ }
+
 
 protected:
 	std::string name = "null";
 	VECTOR pos = VGet(0.0f, 0.0f, 0.0f);
+	VECTOR nextPos = VGet(0.0f, 0.0f, 0.0f);
 	VECTOR modelScale = VGet(0.0f, 0.0f, 0.0f);
 	int modelHandle = -1;
+	bool isStageCollisionEnabled = false;
+	bool isCollisionEnabled = false;
+	bool isJumping = false;									// ジャンプ中か
 };

@@ -80,6 +80,9 @@
     <Filter Include="ソース ファイル\CollisionManager\StageCollision">
       <UniqueIdentifier>{67d2399f-7dfa-43a6-8777-d3bdd53cb2c8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\State\PlayerState\Fall">
+      <UniqueIdentifier>{f3b435b8-0825-4309-a1c5-1c8b925790e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -138,6 +141,12 @@
     </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
       <Filter>ソース ファイル\CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="StageCollision.cpp">
+      <Filter>ソース ファイル\CollisionManager\StageCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_FallState.cpp">
+      <Filter>ソース ファイル\State\PlayerState\Fall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +221,12 @@
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
       <Filter>ソース ファイル\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="StageCollision.h">
+      <Filter>ソース ファイル\CollisionManager\StageCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_FallState.h">
+      <Filter>ソース ファイル\State\PlayerState\Fall</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

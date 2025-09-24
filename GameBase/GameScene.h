@@ -2,6 +2,7 @@
 #include "Scene.h"
 
 class ObjectManager;
+class CollisionManager;
 class GameScene :public Scene
 {
 public:
@@ -21,4 +22,5 @@ public:
 
 private:
     std::shared_ptr<ObjectManager> objectMgr = nullptr;
+    std::shared_ptr<CollisionManager> collisionMgr = nullptr;
 };

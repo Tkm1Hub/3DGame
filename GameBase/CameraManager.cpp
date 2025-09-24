@@ -52,5 +52,4 @@ void CameraManager::Update()
 
 	cameraSelector->Update(mainCamera);
 	mainCamera->Update();
-	printf("cameraPos[%f,%f,%f]\n", mainCamera->GetPosition().x, mainCamera->GetPosition().y, mainCamera->GetPosition().z);
 }

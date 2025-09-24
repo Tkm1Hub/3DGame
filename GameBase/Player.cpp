@@ -1,10 +1,17 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "Input.h"
+#include "CameraManager.h"
 #include "Player_StandState.h"
+#include "Player_WalkState.h"
+#include "Player_JumpState.h"
+#include "Player_FallState.h"
 
 void Player::Init()
 {
 	modelScale = VGet(0.1f, 0.1f, 0.1f);
+	isStageCollisionEnabled = true;
+	isCollisionEnabled = true;
 	auto spStandState = std::make_shared<Player_StandState>();
 	ChangeState(spStandState);
 }
@@ -21,11 +28,16 @@ void Player::Update()
 	// ステートの更新
 	stateMachine.Update();
 
-	// モデルの移動
-	Move(moveVec);
+	// 次の座標を計算
+	Move();
 
 	// モデルの方向更新
 	UpdateAngle();
+
+	// モデルの位置更新
+	MV1SetPosition(modelHandle, pos);
+	printf("PlayerPos[%.2f,%.2f,%.2f]\n", pos.x, pos.y, pos.z);
+	printf("PlayerNextPos[%.2f,%.2f,%.2f]\n", pos.x, pos.y, pos.z);
 }
 
 void Player::Draw()
@@ -39,11 +51,18 @@ void Player::ChangeState(std::shared_ptr<PlayerStateBase> a_spState)
 	stateMachine.ChangeState(a_spState);
 }
 
-void Player::Move(const VECTOR& moveVec)
+void Player::Move()
 {
-	pos = VAdd(pos,VScale(moveVec, params.MoveSpeed));
+	// 移動ベクトルのＹ成分をＹ軸方向の速度にする
+	moveVec.y = currentJumpPower;
 
-	MV1SetPosition(modelHandle, pos);
+	nextPos = VAdd(pos,VScale(moveVec, params.MoveSpeed));
+
+	//Y座標が-100以下になったら座標を初期化する
+	if (pos.y < -100.0f || pos.y>500)
+	{
+		pos = params.InitPos;
+	}
 }
 
 void Player::UpdateAngle()
@@ -100,4 +119,80 @@ void Player::UpdateAngle()
 	angle = targetAngle - difference;
 
 	MV1SetRotationXYZ(modelHandle, VGet(0.0f, angle + DX_PI_F, 0.0f));
+}
+
+/// <summary>
+/// 天井に当たった時
+/// </summary>
+void Player::OnHitRoof()
+{
+	// Ｙ軸方向の速度は反転
+	currentJumpPower = -currentJumpPower;
+}
+
+/// <summary>
+/// 床に当たった時
+/// </summary>
+void Player::OnHitFloor()
+{
+	// Ｙ軸方向の移動速度は０に
+	currentJumpPower = 0.0f;
+
+	// もしジャンプ中だった場合は着地状態にする
+	if (isJumping)
+	{
+		// 移動していたかどうかで着地後の状態と再生するアニメーションを分岐する
+		if (isMove)
+		{
+			auto spWalkState = std::make_shared<Player_WalkState>();
+			ChangeState(spWalkState);
+		}
+		else
+		{
+			auto spStandState = std::make_shared<Player_StandState>();
+			ChangeState(spStandState);
+		}
+
+		// 着地時はアニメーションのブレンドは行わない
+		// animation->SetBlendRate(1.0f);
+		isJumping = false;
+	}
+}
+
+/// <summary>
+/// 落下が確定したとき
+/// </summary>
+void Player::OnFall()
+{
+	if (!isJumping)
+	{
+		// ジャンプ中(落下中）にする
+		auto spFallState = std::make_shared<Player_FallState>();
+		ChangeState(spFallState);
+		isJumping = true;
+
+		// ちょっとだけジャンプする
+		currentJumpPower = FallUpPower;
+	}
+}
+
+VECTOR Player::GetMoveInput()
+{
+	VECTOR mVec = VGet(0.0f, 0.0f, 0.0f);
+
+	// カメラの前方向ベクトルを取得
+	VECTOR camForward = CameraManager::GetCameraManager().GetMainCamera()->GetForward();
+	VECTOR camRight = VCross(camForward, VGet(0.0f, 1.0f, 0.0f));
+	camRight = VNorm(camRight);
+
+	// スティック入力
+	float stickX = Input::GetInput().GetLeftStickX();
+	float stickY = Input::GetInput().GetLeftStickY();
+
+	// 移動ベクトル
+	mVec = VAdd(VScale(camRight, stickX), VScale(camForward, stickY));
+	if (VSize(mVec) > 0.0f)
+		mVec = VNorm(mVec);
+
+	return mVec;
 }
