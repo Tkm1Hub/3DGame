@@ -5,15 +5,21 @@
 #include "SkyDome.h"
 #include "Stage.h"
 #include "Player.h"
+#include "Sword.h"
 void ObjectManager::Create()
 {
 	skyDome = std::make_shared<SkyDome>("SkyDome");
 	stage = std::make_shared<Stage>("Stage");
 	player = std::make_shared<Player>("Player");
+	sword = std::make_shared<Sword>("Sword");
+
+	sword->SetOwner(player);
+	skyDome->SetOwner(player);
 
 	AddObject(skyDome);
 	AddObject(stage);
 	AddObject(player);
+	AddObject(sword);
 }
 
 void ObjectManager::AddObject(std::shared_ptr<IGameObject> obj)
@@ -77,6 +83,7 @@ void ObjectManager::ApplyCollision()
 		if (obj->GetIsCollisionEnabled())
 		{
 			obj->SetPosition(obj->GetNextPosition());
+			MV1SetPosition(obj->GetModelHandle(), obj->GetPosition());
 		}
 	}
 }

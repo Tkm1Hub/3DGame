@@ -22,6 +22,7 @@ void Player::Load()
 {
 	// モデルハンドル取得
 	modelHandle = MV1LoadModel("data/model/character/Hideron.mv1");
+	handBoneIndex = MV1SearchFrame(modelHandle, "Hand_R.001");
 	MV1SetScale(modelHandle, modelScale);
 	MV1SetPosition(modelHandle, pos);
 
@@ -48,11 +49,10 @@ void Player::Update()
 	// モデルの方向更新
 	UpdateAngle();
 
-	// モデルの位置更新
-	MV1SetPosition(modelHandle, pos);
-
 	// アニメーションの更新
 	animation.Update();
+
+	handMatrix = MV1GetFrameLocalWorldMatrix(modelHandle, handBoneIndex);
 }
 
 void Player::Draw()

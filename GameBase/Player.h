@@ -57,6 +57,8 @@ public:
 	const float GetHitRadius() const override { return params.HitRadius; }
 	const float GetHitHeight() const override { return params.HitHeight; }
 
+	const MATRIX GetHandMatrix()const { return handMatrix; }
+
 	void OnHitRoof() override;       // 天井に当たった時
 	void OnHitFloor() override;      // 床に当たった時
 	void OnFall() override;          // 落下が確定したとき
@@ -70,6 +72,10 @@ public:
 private:
 	StateMachine stateMachine;	// ステートマシン
 	PlayerParams params;		// パラメータ
+
+	MATRIX handMatrix;
+
+	int handBoneIndex = -1;		// 手のボーンの番号
 
 	bool isRunning = false;								// 走っているか
 	bool isAttack = false;								// 攻撃中か

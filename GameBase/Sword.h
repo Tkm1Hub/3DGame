@@ -1,12 +1,12 @@
 #pragma once
 #include "GameObject.h"
 class Player;
-class SkyDome : public IGameObject
+class Sword :public IGameObject
 {
 public:
-	SkyDome(const std::string&name):IGameObject(name){}
+	Sword(const std::string name) :IGameObject(name){}
 
-	void Init() override;
+	void Init()override;
 	void Load() override;
 	void Update() override;
 	void Draw() override;
@@ -14,6 +14,7 @@ public:
 	void SetOwner(std::shared_ptr<Player> player) { owner = player; }
 
 private:
-	VECTOR scale = VGet(0.8f, 0.8f, 0.8f);
+	VECTOR offsetPos = { 0.0f,0.0f,0.0f };
+	VECTOR offsetRot = { 0.0f,0.0f,0.0f };
 	std::shared_ptr<Player> owner = nullptr;
 };
