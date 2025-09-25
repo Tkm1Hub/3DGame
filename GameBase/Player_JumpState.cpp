@@ -11,13 +11,14 @@ void Player_JumpState::OnStart()
 	
 	// ジャンプフラグを更新
 	m_pPlayer->SetIsJumping(true);
+
+	// ジャンプアニメを再生
+	m_pPlayer->animation.Play(static_cast<int>(PlayerAnimState::Jump));
+
 }
 
 void Player_JumpState::OnUpdate()
 {
-	// スティックで移動
-	VECTOR moveVec = m_pPlayer->GetMoveInput();
-	m_pPlayer->SetMoveVec(moveVec);
 
 	// 重力を適応
 	float currentJumpPower = m_pPlayer->GetCurrentJumpPower();

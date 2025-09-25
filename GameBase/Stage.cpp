@@ -5,6 +5,7 @@ void Stage::Init()
 {
 	pos = VGet(0.0f, -10.0f, 0.0f);
 	modelScale = VGet(0.05f, 0.05f, 0.05f);
+	isShadowEnabled = true;
 }
 
 void Stage::Load()

@@ -16,7 +16,7 @@ public:
 private:
 	// 定数
 	static constexpr float CAMERA_NEAR = 0.1f;
-	static constexpr float CAMERA_FAR = 1000.0f;
+	static constexpr float CAMERA_FAR = 1500.0f;
 	static constexpr float SMOOTHING = 0.1f;			// カメラのスムージング
 
 	// 変数

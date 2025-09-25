@@ -1,21 +1,25 @@
 #include "stdafx.h"
-#include "Player_WalkState.h"
+#include "Player_RunState.h"
 #include "Player_StandState.h"
 #include "Player_JumpState.h"
 #include "CameraManager.h"
 #include "Player.h"
 #include "Input.h"
 
-void Player_WalkState::OnStart()
+void Player_RunState::OnStart()
 {
-	// 歩きアニメを再生
-	m_pPlayer->animation.Play(static_cast<int>(PlayerAnimState::Walk));
+	// 走り状態のフラグを立てる
+	m_pPlayer->SetRunFlag(true);
 
 	m_pPlayer->SetMoveFlag(true);
+
+	// 歩きアニメを再生
+	m_pPlayer->animation.Play(static_cast<int>(PlayerAnimState::Run));
 }
 
-void Player_WalkState::OnUpdate()
+void Player_RunState::OnUpdate()
 {
+
 	// スティック入力がない場合Standに戻る
 	if (!Input::GetInput().GetIsMoveLStick())
 	{
@@ -33,8 +37,6 @@ void Player_WalkState::OnUpdate()
 	}
 }
 
-void Player_WalkState::OnExit()
+void Player_RunState::OnExit()
 {
-	m_pPlayer->SetMoveFlag(false);
 }
-

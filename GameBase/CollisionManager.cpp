@@ -23,7 +23,7 @@ void CollisionManager::Update()
 		if (obj->GetIsStageCollisionEnabled())
 		{
 			VECTOR nextPos = stageCollision->CheckCollision(*obj, obj->GetNextPosition());
-			obj->SetPosition(nextPos);
+			obj->SetNextPosition(nextPos);
 		}
 	}
 }

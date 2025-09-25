@@ -68,12 +68,16 @@ void ObjectManager::UpdateAll()
 		obj->Update();
 	}
 }
+
+
 void ObjectManager::ApplyCollision()
 {
 	for (auto obj : objects)
 	{
-		if(obj->GetIsCollisionEnabled())
-		obj->SetPosition(obj->GetNextPosition());
+		if (obj->GetIsCollisionEnabled())
+		{
+			obj->SetPosition(obj->GetNextPosition());
+		}
 	}
 }
 

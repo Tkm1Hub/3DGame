@@ -12,19 +12,28 @@ void Player::Init()
 	modelScale = VGet(0.1f, 0.1f, 0.1f);
 	isStageCollisionEnabled = true;
 	isCollisionEnabled = true;
+	isShadowEnabled = true;
 	auto spStandState = std::make_shared<Player_StandState>();
 	ChangeState(spStandState);
 }
 
 void Player::Load()
 {
+	// モデルハンドル取得
 	modelHandle = MV1LoadModel("data/model/character/Hideron.mv1");
 	MV1SetScale(modelHandle, modelScale);
 	MV1SetPosition(modelHandle, pos);
+
+	// アニメーションのロード
+	animation.LoadAnimation(modelHandle);
+	// アイドルを再生
+	animation.Play(static_cast<int>(PlayerAnimState::Idle));
 }
 
 void Player::Update()
 {
+	moveVec = GetMoveInput();
+
 	// ステートの更新
 	stateMachine.Update();
 
@@ -36,8 +45,9 @@ void Player::Update()
 
 	// モデルの位置更新
 	MV1SetPosition(modelHandle, pos);
-	printf("PlayerPos[%.2f,%.2f,%.2f]\n", pos.x, pos.y, pos.z);
-	printf("PlayerNextPos[%.2f,%.2f,%.2f]\n", pos.x, pos.y, pos.z);
+
+	// アニメーションの更新
+	animation.Update();
 }
 
 void Player::Draw()
@@ -53,15 +63,56 @@ void Player::ChangeState(std::shared_ptr<PlayerStateBase> a_spState)
 
 void Player::Move()
 {
+	// HACK: 移動距離が0.01未満で微妙に移動していた場合はじんわり移動してバグる
+// x軸かy軸方向に 0.01f 以上移動した場合は「移動した」フラグを１にする
+	if (fabs(moveVec.x) > 0.01f || fabs(moveVec.z) > 0.01f)
+	{
+		isMove = true;
+	}
+	else
+	{
+		isMove = false;
+	}
+
+	// 移動速度を計算
+	CulcMoveSpeed();
+	moveVec = VScale(targetMoveDirection, currentMoveSpeed);
+
 	// 移動ベクトルのＹ成分をＹ軸方向の速度にする
 	moveVec.y = currentJumpPower;
 
-	nextPos = VAdd(pos,VScale(moveVec, params.MoveSpeed));
+	nextPos = VAdd(pos,moveVec);
 
 	//Y座標が-100以下になったら座標を初期化する
 	if (pos.y < -100.0f || pos.y>500)
 	{
 		pos = params.InitPos;
+		nextPos = params.InitPos;
+	}
+
+	printf("moveVec [ %.2f,%.2f,%.2f ]\n", moveVec.x, moveVec.y, moveVec.z);
+	printf("currentMoveSpeed : %f\n", currentMoveSpeed);
+}
+
+void Player::CulcMoveSpeed()
+{
+	if (isMove)
+	{
+		currentMoveSpeed += params.Accel;
+	}
+	else
+	{
+		currentMoveSpeed -= params.decel;
+	}
+
+	// 限界値を超えたら修正
+	if (isRunning)
+	{
+		currentMoveSpeed = std::clamp(currentMoveSpeed, 0.0f, params.RunSpeed);
+	}
+	else
+	{
+		currentMoveSpeed = std::clamp(currentMoveSpeed, 0.0f, params.WalkSpeed);
 	}
 }
 
@@ -72,10 +123,6 @@ void Player::UpdateAngle()
 	float difference;			// 目標角度と現在の角度との差
 	float speed = params.AngleSpeed;	// 角度変更速度
 
-	if (VSize(moveVec) != 0.0f)
-	{
-		targetMoveDirection = VNorm(moveVec);
-	}
 
 	// 目標の方向ベクトルから角度値を算出する
 	targetAngle = static_cast<float>(atan2(targetMoveDirection.x, targetMoveDirection.z));
@@ -191,8 +238,10 @@ VECTOR Player::GetMoveInput()
 
 	// 移動ベクトル
 	mVec = VAdd(VScale(camRight, stickX), VScale(camForward, stickY));
-	if (VSize(mVec) > 0.0f)
-		mVec = VNorm(mVec);
+	if (VSize(mVec) != 0.0f)
+	{
+		targetMoveDirection = VNorm(mVec);
+	}
 
 	return mVec;
 }

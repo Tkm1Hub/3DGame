@@ -11,7 +11,7 @@ public:
 	void SetMoveVec(VECTOR newMoveVec) { moveVec = newMoveVec; }
 	void SetJumpPower(float newJumpPower) { currentJumpPower = newJumpPower; }
 
-	void SetIsMove(bool IsMove) { isMove = IsMove; }
+	void SetMoveFlag(bool IsMove) { isMove = IsMove; }
 	void SetIsJumping(bool Isjumping) { isJumping = Isjumping; }
 
 

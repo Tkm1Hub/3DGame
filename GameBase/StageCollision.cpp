@@ -11,28 +11,28 @@ void StageCollision::SetStageCollision(int stageModelHandle)
 /// <summary>
 /// 当たり判定をして、補正した移動先のポジションを返す
 /// </summary>
-VECTOR StageCollision::CheckCollision(IGameObject& object, const VECTOR& moveVector)
+VECTOR StageCollision::CheckCollision(IGameObject& object, const VECTOR& nextPos)
 {
     VECTOR oldPos = object.GetPosition();       // 移動前の座標
-    VECTOR nextPos = VAdd(oldPos, moveVector);  // 移動後の座標
+    VECTOR newPos = nextPos;
 
     // プレイヤーの周囲にあるステージポリゴンを取得する
     // ( 検出する範囲は移動距離も考慮する )
-    auto hitDim = MV1CollCheck_Sphere(modelHandle, -1, oldPos, DefaultSize + VSize(moveVector));
+    auto hitDim = MV1CollCheck_Sphere(modelHandle, -1, oldPos, DefaultSize + VSize(newPos));
 
     // 検出されたポリゴンが壁ポリゴン( ＸＺ平面に垂直なポリゴン )か床ポリゴン( ＸＺ平面に垂直ではないポリゴン )かを判断し、保存する
     AnalyzeWallAndFloor(hitDim, oldPos);
 
     // 壁ポリゴンとの当たりをチェックし、移動ベクトルを補正する
-    nextPos = CheckHitWithWall(object, nextPos);
+    newPos = CheckHitWithWall(object, newPos);
 
     // 床ポリゴンとの当たりをチェックし、移動ベクトルを補正する
-    nextPos = CheckHitWithFloor(object, nextPos);
+    newPos = CheckHitWithFloor(object, newPos);
 
     // 検出したプレイヤーの周囲のポリゴン情報を開放する
     MV1CollResultPolyDimTerminate(hitDim);
 
-    return nextPos;
+    return newPos;
 }
 
 /// <summary>

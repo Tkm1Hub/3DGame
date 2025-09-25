@@ -16,10 +16,12 @@ public:
 	bool GetIsJumping() { return isJumping; }
 
 	void SetPosition(const VECTOR& newPos) { pos = newPos; }
+	void SetNextPosition(const VECTOR& newNextPos) { nextPos = newNextPos; }
 	std::string GetName() const { return name; }
 	int GetModelHandle() const { return modelHandle; }
 	bool GetIsStageCollisionEnabled() const { return isStageCollisionEnabled; }
 	bool GetIsCollisionEnabled() const { return isCollisionEnabled; }
+	bool GetIsShadowEnebled() const { return isShadowEnabled; }
 
 	virtual const float GetJumpPower() const { return 0; }
 	// 当たり判定
@@ -37,7 +39,8 @@ protected:
 	VECTOR nextPos = VGet(0.0f, 0.0f, 0.0f);
 	VECTOR modelScale = VGet(0.0f, 0.0f, 0.0f);
 	int modelHandle = -1;
-	bool isStageCollisionEnabled = false;
-	bool isCollisionEnabled = false;
+	bool isStageCollisionEnabled = false;					// ステージとの当たり判定を有効にするか
+	bool isCollisionEnabled = false;						// 当たり判定を有効にするか
+	bool isShadowEnabled = false;							// 影の描画を有効にするか
 	bool isJumping = false;									// ジャンプ中か
 };

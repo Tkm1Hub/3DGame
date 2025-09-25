@@ -10,6 +10,12 @@ void Player_StandState::OnStart()
 	// 移動ベクトルの初期化
 	m_pPlayer->SetMoveVec(VGet(0.0f, 0.0f, 0.0f));
 
+	// 走り状態のフラグを解除
+	m_pPlayer->SetRunFlag(false);
+	m_pPlayer->SetMoveFlag(false);
+
+	// アイドルアニメを再生
+	m_pPlayer->animation.Play(static_cast<int>(PlayerAnimState::Idle));
 }
 
 void Player_StandState::OnUpdate()
@@ -17,8 +23,8 @@ void Player_StandState::OnUpdate()
 	// 左スティックが入力中なら移動
 	if (Input::GetInput().GetIsMoveLStick())
 	{
-		auto spStandState = std::make_shared<Player_WalkState>();
-		m_pPlayer->ChangeState(spStandState);
+		auto spWalkState = std::make_shared<Player_WalkState>();
+		m_pPlayer->ChangeState(spWalkState);
 		return;
 	}
 

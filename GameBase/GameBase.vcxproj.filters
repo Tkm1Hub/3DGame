@@ -83,6 +83,15 @@
     <Filter Include="ソース ファイル\State\PlayerState\Fall">
       <UniqueIdentifier>{f3b435b8-0825-4309-a1c5-1c8b925790e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\ShadowManager">
+      <UniqueIdentifier>{aa266adc-f009-4807-b97b-f0420010d7a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Animation">
+      <UniqueIdentifier>{6e5c803a-a453-4780-ba31-305f075cfe89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State\PlayerState\Run">
+      <UniqueIdentifier>{71f673f2-98f6-4eeb-8cad-b3a61fd1f595}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -147,6 +156,15 @@
     </ClCompile>
     <ClCompile Include="Player_FallState.cpp">
       <Filter>ソース ファイル\State\PlayerState\Fall</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadowManager.cpp">
+      <Filter>ソース ファイル\ShadowManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>ソース ファイル\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_RunState.cpp">
+      <Filter>ソース ファイル\State\PlayerState\Run</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +245,15 @@
     </ClInclude>
     <ClInclude Include="Player_FallState.h">
       <Filter>ソース ファイル\State\PlayerState\Fall</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowManager.h">
+      <Filter>ソース ファイル\ShadowManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>ソース ファイル\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_RunState.h">
+      <Filter>ソース ファイル\State\PlayerState\Run</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

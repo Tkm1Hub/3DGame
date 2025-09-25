@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="CameraManager.cpp" />
     <ClCompile Include="CameraSelector.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
@@ -146,10 +147,12 @@
     <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Player_JumpState.cpp" />
+    <ClCompile Include="Player_RunState.cpp" />
     <ClCompile Include="Player_StandState.cpp" />
     <ClCompile Include="Player_WalkState.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ShadowManager.cpp" />
     <ClCompile Include="SkyDome.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="StageCollision.cpp" />
@@ -159,14 +162,17 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="CameraManager.h" />
     <ClInclude Include="CameraSelector.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="PlayerStateBase.h" />
     <ClInclude Include="Player_JumpState.h" />
+    <ClInclude Include="Player_RunState.h" />
     <ClInclude Include="Player_StandState.h" />
     <ClInclude Include="Player_WalkState.h" />
+    <ClInclude Include="ShadowManager.h" />
     <ClInclude Include="StageCollision.h" />
     <ClInclude Include="StateBase.h" />
     <ClInclude Include="Debug.h" />

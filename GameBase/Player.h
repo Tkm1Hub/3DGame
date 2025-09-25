@@ -1,6 +1,7 @@
 #pragma once
 #include "Character.h"
 #include "StateMachine.h"
+#include "Animation.h"
 #include "PlayerStateBase.h"
 
 // パラメータ
@@ -8,11 +9,28 @@ struct PlayerParams
 {
 	float JumpPower = 2.5f;		// ジャンプ力
 	float Gravity = 0.08f;		// 重力
-	float MoveSpeed = 0.5f;		// 移動速度
+	float WalkSpeed = 0.5f;		// 歩き移動速度
+	float RunSpeed = 1.5f;		// 走り移動速度
+	float Accel = 0.01f;		// 移動加速度
+	float decel = 0.03f;		// 移動減速度
 	float AngleSpeed = 0.2f;	// 移動時のモデル回転速度
 	float HitRadius = 3.0f;		// 当たり判定半径
 	float HitHeight = 16.5f;	// 当たり判定高さ
 	VECTOR InitPos = { 0.0f,0.0f,0.0f };	// 初期座標
+};
+
+// アニメーション番号
+enum class PlayerAnimState :int
+{
+	None = -1,      // なし
+	TPose = 0,      // 不明
+	Idle = 0,       // アイドル
+	Walk = 1,       // 歩き
+	Run = 2,        // 走り
+	RunPose = 3,    // ダッシュポーズ
+	RunStop = 5,    // ストップ
+	Jump = 7,       // ジャンプ
+	Fall = 8,       // 落下中
 };
 
 class PayerStateBase;
@@ -28,6 +46,9 @@ public:
 
 	void ChangeState(std::shared_ptr<PlayerStateBase> a_spState);
 
+	void SetRunFlag(bool flag) { isRunning = flag; }
+	void SetMoveFrag(bool flag) { isMove = flag; }
+
 	const float GetHitRadius() const override { return params.HitRadius; }
 	const float GetHitHeight() const override { return params.HitHeight; }
 
@@ -35,14 +56,23 @@ public:
 	void OnHitFloor() override;      // 床に当たった時
 	void OnFall() override;          // 落下が確定したとき
 
-	PlayerParams params;		// パラメータ
 	VECTOR GetMoveInput();		// スティックによる移動ベクトルの取得
+
+	Animation animation;		// アニメーション
 	const PlayerParams GetParams() const { return params; }
 
 private:
 	StateMachine stateMachine;	// ステートマシン
+	PlayerParams params;		// パラメータ
+
+
+	
+	VECTOR targetMoveDirection = { 0.0f,0.0f,0.0f };	// モデルが向くべき方向
+	float currentMoveSpeed = 0.0f;						// 現在の移動速度
+	bool isRunning = false;								// 走っているか
 
 	void Move();	// モデルの移動
+	void CulcMoveSpeed();	// 移動速度の計算
 
 	void UpdateAngle();			// モデルの角度更新
 
