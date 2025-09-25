@@ -6,6 +6,7 @@
 #include "Player_WalkState.h"
 #include "Player_JumpState.h"
 #include "Player_FallState.h"
+#include "Player_RunState.h"
 
 void Player::Init()
 {
@@ -32,7 +33,11 @@ void Player::Load()
 
 void Player::Update()
 {
-	moveVec = GetMoveInput();
+	if (!isAttack)
+	{
+		// スティックでの移動入力
+		moveVec = GetMoveInput();
+	}
 
 	// ステートの更新
 	stateMachine.Update();
@@ -75,7 +80,10 @@ void Player::Move()
 	}
 
 	// 移動速度を計算
-	CulcMoveSpeed();
+	if (!isAttack)
+	{
+		CulcMoveSpeed();
+	}
 	moveVec = VScale(targetMoveDirection, currentMoveSpeed);
 
 	// 移動ベクトルのＹ成分をＹ軸方向の速度にする
@@ -90,7 +98,7 @@ void Player::Move()
 		nextPos = params.InitPos;
 	}
 
-	printf("moveVec [ %.2f,%.2f,%.2f ]\n", moveVec.x, moveVec.y, moveVec.z);
+	printf("targetMoveDirection [ %.2f,%.2f,%.2f ]\n", targetMoveDirection.x, targetMoveDirection.y, targetMoveDirection.z);
 	printf("currentMoveSpeed : %f\n", currentMoveSpeed);
 }
 
@@ -191,8 +199,16 @@ void Player::OnHitFloor()
 		// 移動していたかどうかで着地後の状態と再生するアニメーションを分岐する
 		if (isMove)
 		{
-			auto spWalkState = std::make_shared<Player_WalkState>();
-			ChangeState(spWalkState);
+			if (isRunning)
+			{
+				auto spRunState = std::make_shared<Player_RunState>();
+				ChangeState(spRunState);
+			}
+			else
+			{
+				auto spWalkState = std::make_shared<Player_WalkState>();
+				ChangeState(spWalkState);
+			}
 		}
 		else
 		{

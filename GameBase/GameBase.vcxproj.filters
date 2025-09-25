@@ -92,6 +92,27 @@
     <Filter Include="ソース ファイル\State\PlayerState\Run">
       <UniqueIdentifier>{71f673f2-98f6-4eeb-8cad-b3a61fd1f595}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\State\PlayerState\Attack">
+      <UniqueIdentifier>{5c3a0efa-faa2-4131-80c8-885bf5092e14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State\PlayerState\Attack\Attak1">
+      <UniqueIdentifier>{a90c7bbd-8e6f-4234-bd93-b4fc0f720264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State\PlayerState\Attack\Attack2">
+      <UniqueIdentifier>{7e240232-3c88-4964-af96-fb2190ef83ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Character\EnemySmall">
+      <UniqueIdentifier>{17a10ecb-b650-4495-b13f-9a975c80fce3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State\Enemy">
+      <UniqueIdentifier>{aa63a537-2ed4-4517-876c-43dc4fdcc251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State\Enemy\EnemySmallState">
+      <UniqueIdentifier>{d25c8524-1423-4522-9c19-e25e310f8a53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State\Enemy\EnemySmallState\Stand">
+      <UniqueIdentifier>{6691404e-34bd-4b14-894c-820703f16c9e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -165,6 +186,18 @@
     </ClCompile>
     <ClCompile Include="Player_RunState.cpp">
       <Filter>ソース ファイル\State\PlayerState\Run</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_Attack1State.cpp">
+      <Filter>ソース ファイル\State\PlayerState\Attack\Attak1</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_Attack2State.cpp">
+      <Filter>ソース ファイル\State\PlayerState\Attack\Attack2</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySmall.cpp">
+      <Filter>ソース ファイル\GameObject\Character\EnemySmall</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySmall_StandState.cpp">
+      <Filter>ソース ファイル\State\Enemy\EnemySmallState\Stand</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +287,21 @@
     </ClInclude>
     <ClInclude Include="Player_RunState.h">
       <Filter>ソース ファイル\State\PlayerState\Run</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_Attack1State.h">
+      <Filter>ソース ファイル\State\PlayerState\Attack\Attak1</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_Attack2State.h">
+      <Filter>ソース ファイル\State\PlayerState\Attack\Attack2</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySmall.h">
+      <Filter>ソース ファイル\GameObject\Character\EnemySmall</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySmallStateBase.h">
+      <Filter>ソース ファイル\State\Enemy\EnemySmallState</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySmall_StandState.h">
+      <Filter>ソース ファイル\State\Enemy\EnemySmallState\Stand</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

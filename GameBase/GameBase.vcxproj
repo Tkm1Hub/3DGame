@@ -138,6 +138,10 @@
     <ClCompile Include="CameraSelector.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="EnemySmall.cpp" />
+    <ClCompile Include="EnemySmall_StandState.cpp" />
+    <ClCompile Include="Player_Attack1State.cpp" />
+    <ClCompile Include="Player_Attack2State.cpp" />
     <ClCompile Include="Player_FallState.cpp" />
     <ClCompile Include="FreeCamera.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -167,7 +171,12 @@
     <ClInclude Include="CameraSelector.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CollisionManager.h" />
+    <ClInclude Include="EnemySmall.h" />
+    <ClInclude Include="EnemySmallStateBase.h" />
+    <ClInclude Include="EnemySmall_StandState.h" />
     <ClInclude Include="PlayerStateBase.h" />
+    <ClInclude Include="Player_Attack1State.h" />
+    <ClInclude Include="Player_Attack2State.h" />
     <ClInclude Include="Player_JumpState.h" />
     <ClInclude Include="Player_RunState.h" />
     <ClInclude Include="Player_StandState.h" />

@@ -56,7 +56,6 @@ void Animation::Update()
 		{
 			currentAnimCount = static_cast<float>(fmod(currentAnimCount, animTotalTime));
 		}
-		//}
 
 		// •ÏX‚µ‚½Ä¶ŠÔ‚ğƒ‚ƒfƒ‹‚É”½‰f‚³‚¹‚é
 		MV1SetAttachAnimTime(modelHandle, currentPlayAnim, currentAnimCount);
