@@ -52,8 +52,6 @@ public:
 	void SetMoveFrag(bool flag) { isMove = flag; }
 	void SetAttackFrag(bool flag) { isAttack = flag; }
 
-	void SetCurrentMoveSpeed(float speed) { currentMoveSpeed = speed; }
-
 	const float GetHitRadius() const override { return params.HitRadius; }
 	const float GetHitHeight() const override { return params.HitHeight; }
 

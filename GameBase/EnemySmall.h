@@ -1,14 +1,17 @@
 #pragma once
 #include "Character.h"
+#include "StateMachine.h"
 
 // パラメータ
 struct EnemySmall_Params
 {
-	float HitRadius = 3.0f;		// 当たり判定半径
+	float Gravity = 0.08f;		// 重力
+	float HitRadius = 4.0f;		// 当たり判定半径
 	float HitHeight = 14.0f;	// 当たり判定高さ
 	VECTOR InitPos = { 0.0f,0.0f,30.0f };	// 初期座標
 };
 
+class EnemySmallStateBase;
 class EnemySmall :public Character
 {
 public:
@@ -19,6 +22,9 @@ public:
 	void Update() override;
 	void Draw() override;
 
+	void ChangeState(std::shared_ptr<EnemySmallStateBase> a_spState);
+
+
 	const float GetHitRadius() const override { return params.HitRadius; }
 	const float GetHitHeight() const override { return params.HitHeight; }
 
@@ -26,7 +32,10 @@ public:
 	void OnHitFloor() override;      // 床に当たった時
 	void OnFall() override;          // 落下が確定したとき
 
-
+	const EnemySmall_Params GetParams() const { return params; }
 private:
 	EnemySmall_Params params;	// パラメータ
+	StateMachine stateMachine;	// ステートマシン
+
+	void Move();
 };

@@ -6,12 +6,15 @@
 #include "Stage.h"
 #include "Player.h"
 #include "Sword.h"
+#include "EnemySmall.h"
 void ObjectManager::Create()
 {
 	skyDome = std::make_shared<SkyDome>("SkyDome");
 	stage = std::make_shared<Stage>("Stage");
 	player = std::make_shared<Player>("Player");
 	sword = std::make_shared<Sword>("Sword");
+	enemySmall = std::make_shared<EnemySmall>("EnemySmall");
+
 
 	sword->SetOwner(player);
 	skyDome->SetOwner(player);
@@ -20,6 +23,7 @@ void ObjectManager::Create()
 	AddObject(stage);
 	AddObject(player);
 	AddObject(sword);
+	AddObject(enemySmall);
 }
 
 void ObjectManager::AddObject(std::shared_ptr<IGameObject> obj)

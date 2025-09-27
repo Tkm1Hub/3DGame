@@ -5,6 +5,7 @@
 #include "CameraManager.h"
 #include "Input.h"
 #include "ShadowManager.h"
+#include "Debug.h"
 GameScene::GameScene(SceneManager& manager)
 	: Scene{manager}{
 	Init();
@@ -18,6 +19,7 @@ void GameScene::Init()
 	objectMgr = std::make_shared<ObjectManager>();
 	collisionMgr = std::make_shared<CollisionManager>();
 	shadowMgr = std::make_shared<ShadowManager>();
+	debug = std::make_shared<Debug>();
 
 	// オブジェクトの生成
 	objectMgr->Create();
@@ -38,6 +40,8 @@ void GameScene::Init()
 
 	collisionMgr->SetObjects(objectMgr->GetObjects());
 	collisionMgr->Init();
+
+	debug->SetObjects(objectMgr->GetObjects());
 
 	shadowMgr->Init();
 }
@@ -62,7 +66,9 @@ void GameScene::Update()
 
 	// カメラの更新
 	CameraManager::GetCameraManager().Update();
-	
+
+	// デバッグの更新
+	debug->Update();
 }
 
 void GameScene::Draw()const
@@ -87,6 +93,9 @@ void GameScene::Draw()const
 
 	// オブジェクトの描画
 	objectMgr->DrawAll();
+
+	// デバッグ情報の描画
+	debug->Draw();
 
 	// 描画に使用するシャドウマップの設定を解除
 	SetUseShadowMap(0, -1);

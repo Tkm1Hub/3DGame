@@ -32,11 +32,14 @@ public:
 	virtual void OnHitFloor() {/*デフォルトでは何も実装しない*/ }
 	virtual void OnHitRoof() {/*デフォルトでは何も実装しない*/ }
 
+	virtual const VECTOR GetCapsuleAPos() { return VGet(0.0f, 0.0f, 0.0f); }
+	virtual const VECTOR GetCapsuleBPos(){ return VGet(0.0f, 0.0f, 0.0f); }
 
 protected:
 	std::string name = "null";
 	VECTOR pos = VGet(0.0f, 0.0f, 0.0f);
 	VECTOR nextPos = VGet(0.0f, 0.0f, 0.0f);
+	VECTOR rotate = VGet(0.0f, 0.0f, 0.0f);
 	VECTOR modelScale = VGet(0.0f, 0.0f, 0.0f);
 	int modelHandle = -1;
 	bool isStageCollisionEnabled = false;					// ステージとの当たり判定を有効にするか

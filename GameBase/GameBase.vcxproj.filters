@@ -116,6 +116,9 @@
     <Filter Include="ソース ファイル\GameObject\Sword">
       <UniqueIdentifier>{22330ca2-82b0-4837-a939-cf276c4ea348}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\State\Enemy\EnemySmallState\Fall">
+      <UniqueIdentifier>{8c0e7637-ab77-4bd3-a3e0-88a2ca0e4f32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -204,6 +207,9 @@
     </ClCompile>
     <ClCompile Include="Sword.cpp">
       <Filter>ソース ファイル\GameObject\Sword</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySmall_FallState.cpp">
+      <Filter>ソース ファイル\State\Enemy\EnemySmallState\Fall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -311,6 +317,9 @@
     </ClInclude>
     <ClInclude Include="Sword.h">
       <Filter>ソース ファイル\GameObject\Sword</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySmall_FallState.h">
+      <Filter>ソース ファイル\State\Enemy\EnemySmallState\Fall</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

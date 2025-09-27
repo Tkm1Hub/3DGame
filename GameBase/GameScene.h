@@ -4,6 +4,7 @@
 class ObjectManager;
 class CollisionManager;
 class ShadowManager;
+class Debug;
 class GameScene :public Scene
 {
 public:
@@ -25,4 +26,5 @@ private:
     std::shared_ptr<ObjectManager> objectMgr = nullptr;
     std::shared_ptr<CollisionManager> collisionMgr = nullptr;
     std::shared_ptr<ShadowManager> shadowMgr = nullptr;
+    std::shared_ptr<Debug> debug = nullptr;
 };

@@ -13,6 +13,10 @@ void Player_RunState::OnStart()
 
 	m_pPlayer->SetMoveFlag(true);
 
+	// 速度変更
+	float currentMoveSpeed = m_pPlayer->GetParams().RunSpeed;
+	m_pPlayer->SetMoveSpeed(currentMoveSpeed);
+
 	// 歩きアニメを再生
 	m_pPlayer->animation.Play(static_cast<int>(PlayerAnimState::Run));
 }

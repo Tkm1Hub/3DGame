@@ -22,7 +22,7 @@ void Player_Attack2State::OnUpdate()
 	VECTOR moveVec = m_pPlayer->GetTargetMoveDirection();
 	m_pPlayer->SetMoveVec(moveVec);
 	// UŒ‚’†‚ÌˆÚ“®‘¬“x‚ð•t—^
-	m_pPlayer->SetCurrentMoveSpeed(m_pPlayer->GetParams().Attack1MoveSpeed);
+	m_pPlayer->SetMoveSpeed(m_pPlayer->GetParams().Attack1MoveSpeed);
 
 	if (!m_doNextAttack)
 	{

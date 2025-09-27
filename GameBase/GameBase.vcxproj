@@ -139,6 +139,7 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="EnemySmall.cpp" />
+    <ClCompile Include="EnemySmall_FallState.cpp" />
     <ClCompile Include="EnemySmall_StandState.cpp" />
     <ClCompile Include="Player_Attack1State.cpp" />
     <ClCompile Include="Player_Attack2State.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="EnemySmall.h" />
     <ClInclude Include="EnemySmallStateBase.h" />
+    <ClInclude Include="EnemySmall_FallState.h" />
     <ClInclude Include="EnemySmall_StandState.h" />
     <ClInclude Include="PlayerStateBase.h" />
     <ClInclude Include="Player_Attack1State.h" />

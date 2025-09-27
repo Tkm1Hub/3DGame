@@ -5,6 +5,7 @@ class MainCamera;
 class SkyDome;
 class Stage;
 class Player;
+class EnemySmall;
 class FreeCamera;
 class Sword;
 class ObjectManager
@@ -27,5 +28,6 @@ private:
 	std::shared_ptr<SkyDome> skyDome = nullptr;
 	std::shared_ptr<Stage> stage = nullptr;
 	std::shared_ptr<Player> player = nullptr;
+	std::shared_ptr<EnemySmall> enemySmall = nullptr;
 	std::shared_ptr<Sword> sword = nullptr;
 };
