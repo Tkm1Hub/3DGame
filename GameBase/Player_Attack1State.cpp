@@ -11,7 +11,9 @@ void Player_Attack1State::OnStart()
 	m_pPlayer->SetAttackFrag(true);
 
 	// UŒ‚‚PƒAƒjƒ‚ðÄ¶
-	m_pPlayer->animation.Play(static_cast<int>(PlayerAnimState::RunStop));
+	m_pPlayer->animation.Play(static_cast<int>(PlayerAnimState::Attack1));
+
+	moveSpeed = m_pPlayer->GetParams().Attack1MoveSpeed;
 
 }
 
@@ -22,8 +24,10 @@ void Player_Attack1State::OnUpdate()
 	// Œü‚¢‚Ä‚¢‚é•ûŒü‚ðˆÚ“®ƒxƒNƒgƒ‹‚Æ‚µ‚Ä•Û‘¶
 	VECTOR moveVec = m_pPlayer->GetTargetMoveDirection();
 	m_pPlayer->SetMoveVec(moveVec);
-	// UŒ‚’†‚ÌˆÚ“®‘¬“x‚ð•t—^
-	m_pPlayer->SetMoveSpeed(m_pPlayer->GetParams().Attack1MoveSpeed);
+
+	if (moveSpeed > 0.0f) moveSpeed -= 0.02f;
+	moveSpeed = max(moveSpeed, 0.0f);
+	m_pPlayer->SetMoveSpeed(moveSpeed);
 
 	if (!m_doNextAttack)
 	{
@@ -33,7 +37,7 @@ void Player_Attack1State::OnUpdate()
 		}
 	}
 
-	// ‚Q‚OƒtƒŒ[ƒ€‚ÅUŒ‚I—¹
+	// ‚Q‚SƒtƒŒ[ƒ€‚ÅUŒ‚I—¹
 	if (m_frameCount >= 20)
 	{
 		if (m_doNextAttack)

@@ -1,6 +1,6 @@
 #pragma once
 #include "PlayerStateBase.h"
-class Player_Attack2State :public PlayerStateBase
+class Player_Attack3State :public PlayerStateBase
 {
 public:
 	void OnStart() override;
@@ -10,5 +10,4 @@ public:
 private:
 	int m_frameCount = 0;
 	float moveSpeed = 0.0f;
-	bool m_doNextAttack = false;
 };

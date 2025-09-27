@@ -14,6 +14,9 @@ void EnemySmall::Init()
 
 	auto spStandState = std::make_shared<EnemySmall_StandState>();
 	ChangeState(spStandState);
+	hitHeight = params.HitHeight;
+	hitRadius = params.HitRadius;
+
 }
 
 void EnemySmall::Load()

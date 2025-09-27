@@ -2,6 +2,7 @@
 #include "Player_RunState.h"
 #include "Player_StandState.h"
 #include "Player_JumpState.h"
+#include "Player_AttackDashState.h"
 #include "CameraManager.h"
 #include "Player.h"
 #include "Input.h"
@@ -33,10 +34,18 @@ void Player_RunState::OnUpdate()
 	}
 
 	// A（３）ボタンでジャンプ
-	if (Input::GetInput().GetNowFrameNewInput() & PAD_INPUT_A)
+	if (Input::GetInput().GetNowFrameNewInput() & PAD_INPUT_3)
 	{
 		auto spJumpState = std::make_shared<Player_JumpState>();
 		m_pPlayer->ChangeState(spJumpState);
+		return;
+	}
+
+	// X（１）ボタンでダッシュ攻撃
+	if (Input::GetInput().GetNowFrameNewInput() & PAD_INPUT_1)
+	{
+		auto spAttackDashState = std::make_shared<Player_AttackDashState>();
+		m_pPlayer->ChangeState(spAttackDashState);
 		return;
 	}
 }

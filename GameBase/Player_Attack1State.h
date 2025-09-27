@@ -9,5 +9,6 @@ public:
 
 private:
 	int m_frameCount = 0;
+	float moveSpeed = 0.0f;
 	bool m_doNextAttack = false;
 };

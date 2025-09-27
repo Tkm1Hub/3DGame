@@ -16,6 +16,8 @@ void Player::Init()
 	isShadowEnabled = true;
 	auto spStandState = std::make_shared<Player_StandState>();
 	ChangeState(spStandState);
+	hitHeight = params.HitHeight;
+	hitRadius = params.HitRadius;
 }
 
 void Player::Load()

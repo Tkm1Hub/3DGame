@@ -95,9 +95,6 @@
     <Filter Include="ソース ファイル\State\PlayerState\Attack">
       <UniqueIdentifier>{5c3a0efa-faa2-4131-80c8-885bf5092e14}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\State\PlayerState\Attack\Attak1">
-      <UniqueIdentifier>{a90c7bbd-8e6f-4234-bd93-b4fc0f720264}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\State\PlayerState\Attack\Attack2">
       <UniqueIdentifier>{7e240232-3c88-4964-af96-fb2190ef83ad}</UniqueIdentifier>
     </Filter>
@@ -118,6 +115,15 @@
     </Filter>
     <Filter Include="ソース ファイル\State\Enemy\EnemySmallState\Fall">
       <UniqueIdentifier>{8c0e7637-ab77-4bd3-a3e0-88a2ca0e4f32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State\PlayerState\Attack\Attack1">
+      <UniqueIdentifier>{a90c7bbd-8e6f-4234-bd93-b4fc0f720264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State\PlayerState\Attack\Attack3">
+      <UniqueIdentifier>{15b1caf3-046c-44d4-98d1-adbbd16f5838}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\State\PlayerState\Attack\AttackDash">
+      <UniqueIdentifier>{65f78af6-4696-4539-a0f3-51a1e5378d33}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -194,7 +200,7 @@
       <Filter>ソース ファイル\State\PlayerState\Run</Filter>
     </ClCompile>
     <ClCompile Include="Player_Attack1State.cpp">
-      <Filter>ソース ファイル\State\PlayerState\Attack\Attak1</Filter>
+      <Filter>ソース ファイル\State\PlayerState\Attack\Attack1</Filter>
     </ClCompile>
     <ClCompile Include="Player_Attack2State.cpp">
       <Filter>ソース ファイル\State\PlayerState\Attack\Attack2</Filter>
@@ -210,6 +216,12 @@
     </ClCompile>
     <ClCompile Include="EnemySmall_FallState.cpp">
       <Filter>ソース ファイル\State\Enemy\EnemySmallState\Fall</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_Attack3State.cpp">
+      <Filter>ソース ファイル\State\PlayerState\Attack\Attack3</Filter>
+    </ClCompile>
+    <ClCompile Include="Player_AttackDashState.cpp">
+      <Filter>ソース ファイル\State\PlayerState\Attack\AttackDash</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -301,7 +313,7 @@
       <Filter>ソース ファイル\State\PlayerState\Run</Filter>
     </ClInclude>
     <ClInclude Include="Player_Attack1State.h">
-      <Filter>ソース ファイル\State\PlayerState\Attack\Attak1</Filter>
+      <Filter>ソース ファイル\State\PlayerState\Attack\Attack1</Filter>
     </ClInclude>
     <ClInclude Include="Player_Attack2State.h">
       <Filter>ソース ファイル\State\PlayerState\Attack\Attack2</Filter>
@@ -320,6 +332,12 @@
     </ClInclude>
     <ClInclude Include="EnemySmall_FallState.h">
       <Filter>ソース ファイル\State\Enemy\EnemySmallState\Fall</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_Attack3State.h">
+      <Filter>ソース ファイル\State\PlayerState\Attack\Attack3</Filter>
+    </ClInclude>
+    <ClInclude Include="Player_AttackDashState.h">
+      <Filter>ソース ファイル\State\PlayerState\Attack\AttackDash</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

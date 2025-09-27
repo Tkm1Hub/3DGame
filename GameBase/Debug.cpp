@@ -32,7 +32,6 @@ void Debug::Draw()
 
 void Debug::DrawCapsule(const std::shared_ptr<IGameObject>& obj)
 {
-	DrawCapsule3D(VGet(obj->GetPosition().x, obj->GetPosition().y + obj->GetHitRadius(), obj->GetPosition().z)
-		, VGet(obj->GetPosition().x, obj->GetPosition().y + obj->GetHitHeight(), obj->GetPosition().z)
+	DrawCapsule3D(obj->GetCapsuleAPos(), obj->GetCapsuleBPos()
 		, obj->GetHitRadius(), 8, GetColor(0, 255, 0), GetColor(255, 255, 255), FALSE);
 }

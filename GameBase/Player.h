@@ -12,6 +12,9 @@ struct PlayerParams
 	float WalkSpeed = 0.5f;		// 歩き移動速度
 	float RunSpeed = 1.5f;		// 走り移動速度
 	float Attack1MoveSpeed = 0.7f;	// 攻撃1段階目での前方移動速度
+	float Attack2MoveSpeed = 0.9f;	// 攻撃2段階目での前方移動速度
+	float Attack3MoveSpeed = 0.5f;	// 攻撃3段階目での前方移動速度
+	float AttackDashMoveSpeed = 1.5f;	// 走り攻撃での前方移動速度
 	float Accel = 0.01f;		// 移動加速度
 	float decel = 0.03f;		// 移動減速度
 	float AngleSpeed = 0.2f;	// 移動時のモデル回転速度
@@ -25,13 +28,17 @@ enum class PlayerAnimState :int
 {
 	None = -1,      // なし
 	TPose = 0,      // 不明
-	Idle = 0,       // アイドル
-	Walk = 1,       // 歩き
-	Run = 2,        // 走り
-	RunPose = 3,    // ダッシュポーズ
-	RunStop = 5,    // ストップ
+	Idle = 1,       // アイドル
+	Walk = 2,       // 歩き
+	Run = 3,        // 走り
+	RunPose = 4,    // ダッシュポーズ
+	RunStop = 6,    // ストップ
 	Jump = 7,       // ジャンプ
 	Fall = 8,       // 落下中
+	Attack1 = 9,		// 通常攻撃（1段階）
+	Attack2 = 10,	// 通常攻撃（2段階）
+	Attack3 = 11,	// 通常攻撃（3段階）
+	AttackDash = 12,	// 走り攻撃
 };
 
 class PayerStateBase;
