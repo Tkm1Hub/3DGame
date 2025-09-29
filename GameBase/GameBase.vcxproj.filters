@@ -125,6 +125,9 @@
     <Filter Include="ソース ファイル\State\PlayerState\Attack\AttackDash">
       <UniqueIdentifier>{65f78af6-4696-4539-a0f3-51a1e5378d33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\State\Enemy\EnemySmallState\Damage">
+      <UniqueIdentifier>{7664f7ae-31dd-4b83-b4d5-967c4f7959e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -222,6 +225,9 @@
     </ClCompile>
     <ClCompile Include="Player_AttackDashState.cpp">
       <Filter>ソース ファイル\State\PlayerState\Attack\AttackDash</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySmallDamageState.cpp">
+      <Filter>ソース ファイル\State\Enemy\EnemySmallState\Damage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -338,6 +344,9 @@
     </ClInclude>
     <ClInclude Include="Player_AttackDashState.h">
       <Filter>ソース ファイル\State\PlayerState\Attack\AttackDash</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySmallDamageState.h">
+      <Filter>ソース ファイル\State\Enemy\EnemySmallState\Damage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

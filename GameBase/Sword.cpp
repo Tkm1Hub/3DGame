@@ -48,7 +48,7 @@ const VECTOR Sword::GetCapsuleAPos()
 
 const VECTOR Sword::GetCapsuleBPos()
 {
-    // 刀身のボーンの初めのマトリックスを取得
+    // 刀身のボーンの先端のマトリックスを取得
     MATRIX BladeEndMatrix = MV1GetFrameLocalWorldMatrix(modelHandle, bladeEndIndex);
     // 座標をベクトル型に変換
     VECTOR CapsuleBPos = VGet(BladeEndMatrix.m[3][0], BladeEndMatrix.m[3][1], BladeEndMatrix.m[3][2]);

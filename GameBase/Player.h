@@ -59,6 +59,8 @@ public:
 	void SetMoveFrag(bool flag) { isMove = flag; }
 	void SetAttackFrag(bool flag) { isAttack = flag; }
 
+	const bool GetIsAttack()const { return isAttack; }
+
 	const float GetHitRadius() const override { return params.HitRadius; }
 	const float GetHitHeight() const override { return params.HitHeight; }
 
@@ -82,8 +84,8 @@ private:
 
 	int handBoneIndex = -1;		// 手のボーンの番号
 
-	bool isRunning = false;								// 走っているか
-	bool isAttack = false;								// 攻撃中か
+	bool isRunning = false;		// 走っているか
+	bool isAttack = false;		// 攻撃中か
 
 	void Move();	// モデルの移動
 	void CulcMoveSpeed();	// 移動速度の計算

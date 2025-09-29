@@ -2,6 +2,7 @@
 #include "EnemySmall.h"
 #include "EnemySmall_StandState.h"
 #include "EnemySmall_FallState.h"
+#include "Player.h"
 
 void EnemySmall::Init()
 {
@@ -108,4 +109,15 @@ void EnemySmall::OnFall()
 		// ‚¿‚å‚Á‚Æ‚¾‚¯ƒWƒƒƒ“ƒv‚·‚é
 		currentJumpPower = FallUpPower;
 	}
+}
+
+VECTOR EnemySmall::GetDirectionToPlayer()
+{
+	VECTOR playerPos = m_pPlayer->GetPosition();
+	VECTOR enemyPos = pos;
+	VECTOR DirectionToPlayer = VSub(playerPos, enemyPos);
+
+	DirectionToPlayer = VNorm(DirectionToPlayer);
+
+	return DirectionToPlayer;
 }
