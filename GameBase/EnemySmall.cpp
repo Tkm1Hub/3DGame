@@ -2,7 +2,6 @@
 #include "EnemySmall.h"
 #include "EnemySmall_StandState.h"
 #include "EnemySmall_FallState.h"
-#include "Player.h"
 
 void EnemySmall::Init()
 {
@@ -50,7 +49,7 @@ void EnemySmall::Move()
 		isMove = false;
 	}
 
-	moveVec = VScale(targetMoveDirection, currentMoveSpeed);
+	moveVec = VScale(moveVec, currentMoveSpeed);
 
 	// 移動ベクトルのＹ成分をＹ軸方向の速度にする
 	moveVec.y = currentJumpPower;
@@ -84,13 +83,17 @@ void EnemySmall::OnHitRoof()
 /// </summary>
 void EnemySmall::OnHitFloor()
 {
+	// ステートの変更
+	if (isJumping)
+	{
+		auto spStandState = std::make_shared<EnemySmall_StandState>();
+		ChangeState(spStandState);
+	}
+
 	// Ｙ軸方向の移動速度は０に
 	currentJumpPower = 0.0f;
 	isJumping = false;
 
-	// ステートの変更
-	auto spStandState = std::make_shared<EnemySmall_StandState>();
-	ChangeState(spStandState);
 	
 }
 
@@ -109,15 +112,4 @@ void EnemySmall::OnFall()
 		// ちょっとだけジャンプする
 		currentJumpPower = FallUpPower;
 	}
-}
-
-VECTOR EnemySmall::GetDirectionToPlayer()
-{
-	VECTOR playerPos = m_pPlayer->GetPosition();
-	VECTOR enemyPos = pos;
-	VECTOR DirectionToPlayer = VSub(playerPos, enemyPos);
-
-	DirectionToPlayer = VNorm(DirectionToPlayer);
-
-	return DirectionToPlayer;
 }

@@ -58,7 +58,12 @@ void CollisionManager::CheckSwordEnemyCollision()
 {
     if (CheckCapsuleCollision(m_pEnemySmall, m_pSword))
     {
-        m_pEnemySmall->SetDamageFlag(true);
+        if (!m_pEnemySmall->GetDamageFlag())
+        {
+            m_pEnemySmall->SetDamageFlag(true);
+            VECTOR knockBackDirection = CulcKnockBackDirection();
+            m_pEnemySmall->SetMoveVec(knockBackDirection);
+        }
     }
 
 }
@@ -165,4 +170,16 @@ float CollisionManager::DistanceSegmentToSegment(VECTOR p1, VECTOR q1, VECTOR p2
     VECTOR c2 = VAdd(p2, VScale(d2, t));
 
     return VSize(VSub(c1, c2));
+}
+
+VECTOR CollisionManager::CulcKnockBackDirection()
+{
+    VECTOR playerPos = m_pPlayer->GetPosition();
+    VECTOR enemyPos = m_pEnemySmall->GetPosition();
+
+    VECTOR directionEnemyToPlayer = VSub(playerPos, enemyPos);
+    directionEnemyToPlayer = VNorm(directionEnemyToPlayer);
+    
+    VECTOR knockBackDirection = VScale(directionEnemyToPlayer, -1.0f);
+    return knockBackDirection;
 }

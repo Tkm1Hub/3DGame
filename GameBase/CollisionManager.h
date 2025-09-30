@@ -32,4 +32,6 @@ private:
 	//カプセル同士の距離を求める
 	float DistanceSegmentToSegment(VECTOR p1, VECTOR q1, VECTOR p2, VECTOR q2);
 
+	// 敵がノックバックする方向ベクトルを取得
+	VECTOR CulcKnockBackDirection();
 };
