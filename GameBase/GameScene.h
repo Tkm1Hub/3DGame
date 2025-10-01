@@ -23,7 +23,6 @@ public:
     void Draw() const override;
 
 private:
-    std::shared_ptr<ObjectManager> objectMgr = nullptr;
     std::shared_ptr<CollisionManager> collisionMgr = nullptr;
     std::shared_ptr<ShadowManager> shadowMgr = nullptr;
     std::shared_ptr<Debug> debug = nullptr;

@@ -30,7 +30,6 @@ void FreeCamera::Update()
 	// ƒJƒƒ‰‚ÌÀ•W‚ğ•â³‚·‚é
 	FixCameraPosition();
 
-	printf("freeCameraPos[%.2f,%.2f,%.2f]\n", pos.x, pos.y, pos.z);
 	}
 }
 

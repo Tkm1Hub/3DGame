@@ -62,7 +62,7 @@ void CollisionManager::CheckSwordEnemyCollision()
         {
             m_pEnemySmall->SetDamageFlag(true);
             VECTOR knockBackDirection = CulcKnockBackDirection();
-            m_pEnemySmall->SetMoveVec(knockBackDirection);
+            m_pEnemySmall->SetKnockBackDir(knockBackDirection);
         }
     }
 
@@ -177,9 +177,30 @@ VECTOR CollisionManager::CulcKnockBackDirection()
     VECTOR playerPos = m_pPlayer->GetPosition();
     VECTOR enemyPos = m_pEnemySmall->GetPosition();
 
-    VECTOR directionEnemyToPlayer = VSub(playerPos, enemyPos);
-    directionEnemyToPlayer = VNorm(directionEnemyToPlayer);
+    VECTOR directionEnemyToPlayer = GetEnemyToPlayerVec();
     
     VECTOR knockBackDirection = VScale(directionEnemyToPlayer, -1.0f);
     return knockBackDirection;
+}
+
+VECTOR CollisionManager::GetPlayerToEnemyVec()
+{
+    VECTOR enemyPos = m_pEnemySmall->GetPosition();
+    VECTOR playerPos = m_pPlayer->GetPosition();
+
+    VECTOR playerToEnemyVec = VSub(enemyPos, playerPos);
+    playerToEnemyVec = VNorm(playerToEnemyVec);
+
+    return playerToEnemyVec;
+}
+
+VECTOR CollisionManager::GetEnemyToPlayerVec()
+{
+    VECTOR enemyPos = m_pEnemySmall->GetPosition();
+    VECTOR playerPos = m_pPlayer->GetPosition();
+
+    VECTOR enemyToPlayerVec = VSub(playerPos, enemyPos);
+    enemyToPlayerVec = VNorm(enemyToPlayerVec);
+
+    return enemyToPlayerVec;
 }

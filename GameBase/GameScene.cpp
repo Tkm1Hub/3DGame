@@ -16,17 +16,16 @@ GameScene::~GameScene() {}
 void GameScene::Init()
 {
 	//インスタンス化
-	objectMgr = std::make_shared<ObjectManager>();
 	collisionMgr = std::make_shared<CollisionManager>();
 	shadowMgr = std::make_shared<ShadowManager>();
 	debug = std::make_shared<Debug>();
 
 	// オブジェクトの生成
-	objectMgr->Create();
+	ObjectManager::GetObjectMgr().Create();
 
 	// shared_ptr -> weak_ptr に変換
 	std::vector<std::weak_ptr<IGameObject>> weakObjects;
-	for (auto& obj : objectMgr->GetObjects()) {
+	for (auto& obj : ObjectManager::GetObjectMgr().GetObjects()) {
 		weakObjects.push_back(obj);
 	}
 
@@ -35,13 +34,13 @@ void GameScene::Init()
 	CameraManager::GetCameraManager().Create();
 
 	// オブジェクトの初期化
-	objectMgr->InitAll();
-	objectMgr->LoadAll();
+	ObjectManager::GetObjectMgr().InitAll();
+	ObjectManager::GetObjectMgr().LoadAll();
 
-	collisionMgr->SetObjects(objectMgr->GetObjects());
+	collisionMgr->SetObjects(ObjectManager::GetObjectMgr().GetObjects());
 	collisionMgr->Init();
 
-	debug->SetObjects(objectMgr->GetObjects());
+	debug->SetObjects(ObjectManager::GetObjectMgr().GetObjects());
 
 	shadowMgr->Init();
 }
@@ -52,16 +51,16 @@ void GameScene::Update()
 	Input::GetInput().Update();
 
 	// オブジェクトの更新
-	objectMgr->UpdateAll();
+	ObjectManager::GetObjectMgr().UpdateAll();
 
 	// 当たり判定の更新
 	collisionMgr->Update();
 
 	// オブジェクトの位置を確定
-	objectMgr->ApplyCollision();
+	ObjectManager::GetObjectMgr().ApplyCollision();
 
 	// 影の描画範囲を更新
-	auto player = objectMgr->FindObject("Player");
+	auto player = ObjectManager::GetObjectMgr().FindObject("Player");
 	shadowMgr->Update(player->GetPosition());
 
 	// カメラの更新
@@ -77,7 +76,7 @@ void GameScene::Draw()const
 	ShadowMap_DrawSetup(shadowMgr->GetShadowMapHandle());
 
 	// 影が有効なオブジェクトを描画
-	for (auto obj : objectMgr->GetObjects())
+	for (auto obj : ObjectManager::GetObjectMgr().GetObjects())
 	{
 		if (obj->GetIsShadowEnebled())
 		{
@@ -92,7 +91,7 @@ void GameScene::Draw()const
 	SetUseShadowMap(0, shadowMgr->GetShadowMapHandle());
 
 	// オブジェクトの描画
-	objectMgr->DrawAll();
+	ObjectManager::GetObjectMgr().DrawAll();
 
 	// デバッグ情報の描画
 	debug->Draw();

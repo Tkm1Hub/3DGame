@@ -10,7 +10,26 @@ class FreeCamera;
 class Sword;
 class ObjectManager
 {
+private:
+	//コンストラクタを非公開にする
+	ObjectManager() {}
+
+	// コピーコンストラクタと代入演算子を削除
+	ObjectManager(const ObjectManager&) = delete;
+	ObjectManager& operator=(const ObjectManager&) = delete;
+
+	//プライベートデストラクタ
+	~ObjectManager() {}
+
+
 public:
+	// インスタンスを取得するためのメソッド
+	static ObjectManager& GetObjectMgr()
+	{
+		static ObjectManager instance;      // 静的変数としてインスタンスを定義
+		return instance;
+	}
+
 	void Create();
 	void AddObject(std::shared_ptr<IGameObject> obj);
 	std::shared_ptr<IGameObject> FindObject(std::string name);

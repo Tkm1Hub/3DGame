@@ -29,6 +29,8 @@ void EnemySmall::Load()
 
 void EnemySmall::Update()
 {
+	moveVec = VGet(0.0f, 0.0f, 0.0f);
+
 	// ステートの更新
 	stateMachine.Update();
 
@@ -56,6 +58,16 @@ void EnemySmall::Move()
 
 	nextPos = VAdd(pos, moveVec);
 
+	//Y座標が-100以下になったら座標を初期化する
+	if (pos.y < -100.0f || pos.y>500)
+	{
+		pos = params.InitPos;
+		nextPos = params.InitPos;
+	}
+
+	printf("enemy.moveVec[%.2f,%.2f,%.2f]\n", moveVec.x, moveVec.y, moveVec.z);
+	printf("enemy.currentMoveSpeed:%.2f\n", currentMoveSpeed);
+	printf("enemy.knockBackDir : %.2f\n", knockBackDirection);
 }
 
 void EnemySmall::Draw()

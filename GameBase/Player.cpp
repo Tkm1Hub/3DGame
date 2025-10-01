@@ -100,8 +100,6 @@ void Player::Move()
 		nextPos = params.InitPos;
 	}
 
-	printf("targetMoveDirection [ %.2f,%.2f,%.2f ]\n", targetMoveDirection.x, targetMoveDirection.y, targetMoveDirection.z);
-	printf("currentMoveSpeed : %f\n", currentMoveSpeed);
 }
 
 void Player::CulcMoveSpeed()

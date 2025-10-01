@@ -34,4 +34,8 @@ private:
 
 	// 敵がノックバックする方向ベクトルを取得
 	VECTOR CulcKnockBackDirection();
+	// プレイヤーから敵への方向ベクトル
+	VECTOR GetPlayerToEnemyVec();
+	// 敵からプレイヤーへの方向ベクトル
+	VECTOR GetEnemyToPlayerVec();
 };

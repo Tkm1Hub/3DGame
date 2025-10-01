@@ -6,7 +6,7 @@
 struct EnemySmall_Params
 {
 	float Gravity = 0.08f;		// 重力
-	float DamageSpeed = 1.5f;	// ダメージ中ノックバックの速度
+	float DamageSpeed = 3.0f;	// ダメージ中ノックバックの速度
 	float HitRadius = 4.0f;		// 当たり判定半径
 	float HitHeight = 14.0f;	// 当たり判定高さ
 	VECTOR InitPos = { 0.0f,0.0f,30.0f };	// 初期座標
@@ -23,6 +23,8 @@ public:
 	void Update() override;
 	void Draw() override;
 
+	void SetKnockBackDir(VECTOR dir) { knockBackDirection = dir; }
+	VECTOR GetKnockBackDir()const { return knockBackDirection; }
 	void SetDamageFlag(bool flag) { isDamage = flag; }
 	const bool GetDamageFlag() const { return isDamage; }
 
@@ -40,6 +42,8 @@ public:
 private:
 	EnemySmall_Params params;	// パラメータ
 	StateMachine stateMachine;	// ステートマシン
+
+	VECTOR knockBackDirection = { 0.0f,0.0f,0.0f };	// ノックバックベクトル
 
 	bool isDamage = false;
 
