@@ -33,12 +33,15 @@ private:
 	float DistanceSegmentToSegment(VECTOR p1, VECTOR q1, VECTOR p2, VECTOR q2);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// 敵がノックバックする方向ベクトルを取得
 	VECTOR CulcKnockBackDirection();
 	// プレイヤーから敵への方向ベクトル
 	VECTOR GetPlayerToEnemyVec();
 	// 敵からプレイヤーへの方向ベクトル
 	VECTOR GetEnemyToPlayerVec();
+=======
+>>>>>>> parent of 87dd04a (9/30)
 =======
 >>>>>>> parent of 87dd04a (9/30)
 };

@@ -22,9 +22,15 @@ void EnemySmall_DamageState::OnUpdate()
 	// ノックバック速度を設定
 	m_pEnemySmall->SetMoveSpeed(m_moveSpeed);
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// 方向をmoveVecに保存
 	m_pEnemySmall->SetMoveVec(m_pEnemySmall->GetKnockBackDir());
 	
+=======
+	// ノックバック方向ベクトルを設定
+	m_pEnemySmall->SetMoveVec(m_moveVec);
+
+>>>>>>> parent of 87dd04a (9/30)
 =======
 	// ノックバック方向ベクトルを設定
 	m_pEnemySmall->SetMoveVec(m_moveVec);

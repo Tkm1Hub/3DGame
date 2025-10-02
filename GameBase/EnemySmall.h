@@ -25,8 +25,13 @@ public:
 	void Draw() override;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	void SetKnockBackDir(VECTOR dir) { knockBackDirection = dir; }
 	VECTOR GetKnockBackDir()const { return knockBackDirection; }
+=======
+	void SetPlayer(std::shared_ptr<Player> player) { player = m_pPlayer; }
+
+>>>>>>> parent of 87dd04a (9/30)
 =======
 	void SetPlayer(std::shared_ptr<Player> player) { player = m_pPlayer; }
 
