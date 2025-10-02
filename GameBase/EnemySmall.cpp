@@ -29,6 +29,8 @@ void EnemySmall::Load()
 
 void EnemySmall::Update()
 {
+	moveVec = VGet(0.0f, 0.0f, 0.0f);
+
 	// ステートの更新
 	stateMachine.Update();
 

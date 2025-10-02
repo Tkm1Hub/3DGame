@@ -28,6 +28,8 @@ public:
 
 	void ChangeState(std::shared_ptr<EnemySmallStateBase> a_spState);
 
+	VECTOR GetKnockBackDir()const { return knockBackDir; }
+	void SetKnockBackDir(const VECTOR& direction) { knockBackDir = direction; }
 
 	const float GetHitRadius() const override { return params.HitRadius; }
 	const float GetHitHeight() const override { return params.HitHeight; }
@@ -40,6 +42,8 @@ public:
 private:
 	EnemySmall_Params params;	// パラメータ
 	StateMachine stateMachine;	// ステートマシン
+
+	VECTOR knockBackDir = { 0.0f,0.0f,0.0f };
 
 	bool isDamage = false;
 

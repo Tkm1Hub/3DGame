@@ -62,7 +62,7 @@ void CollisionManager::CheckSwordEnemyCollision()
         {
             m_pEnemySmall->SetDamageFlag(true);
             VECTOR knockBackDirection = CulcKnockBackDirection();
-            m_pEnemySmall->SetMoveVec(knockBackDirection);
+            m_pEnemySmall->SetKnockBackDir(knockBackDirection);
         }
     }
 
