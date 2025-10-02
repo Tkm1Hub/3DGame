@@ -5,6 +5,7 @@
 #include "EnemySmall.h"
 #include "Sword.h"
 
+
 void CollisionManager::Init()
 {
 	stageCollision = std::make_shared<StageCollision>();
@@ -71,22 +72,9 @@ void CollisionManager::CheckSwordEnemyCollision()
 // カプセル同士の当たり判定
 bool CollisionManager::CheckCapsuleCollision(const std::shared_ptr<IGameObject> objA, const std::shared_ptr<IGameObject> objB)
 {
-	//VECTOR PosA = objA->GetPosition();
-	//VECTOR PosB = objB->GetPosition();
-
-	//float HeightA = objA->GetHitHeight();    // 高さ
 	float RadiusA = objA->GetHitRadius();    // 半径
 
-	//float HeightB = objB->GetHitHeight();    // 高さ
 	float RadiusB = objB->GetHitRadius();    // 半径
-
-	//// オブジェAのカプセル中心線（上下）
-	//VECTOR TopA = VAdd(PosA, VGet(0, HeightA / 2, 0));
-	//VECTOR BottomA = VSub(PosA, VGet(0, HeightA / 2, 0));
-
-	//// オブジBのカプセル中心線（上下）
-	//VECTOR TopB = VAdd(PosB, VGet(0, HeightB / 2, 0));
-	//VECTOR BottomB = VSub(PosB, VGet(0, HeightB / 2, 0));
     
     // カプセルの上下の座標を取得
     VECTOR TopA = objA->GetCapsuleAPos();

@@ -25,7 +25,14 @@ void Debug::Draw()
 		if (obj->GetIsCollisionEnabled())
 		{
 			DrawCapsule(obj);
+
 		}
+
+        if (obj->GetName() == "CheckPoint")
+        {
+            DrawCylinder(obj->GetPosition(), obj->GetHitRadius(),
+                obj->GetHitHeight(), 32, GetColor(50, 50, 255));
+        }
 	}
 }
 
@@ -34,4 +41,32 @@ void Debug::DrawCapsule(const std::shared_ptr<IGameObject>& obj)
 {
 	DrawCapsule3D(obj->GetCapsuleAPos(), obj->GetCapsuleBPos()
 		, obj->GetHitRadius(), 8, GetColor(0, 255, 0), GetColor(255, 255, 255), FALSE);
+}
+
+void Debug::DrawCylinder(VECTOR pos, float radius, float height, float division, unsigned int color)
+{
+    float yTop = pos.y + height / 2.0f;
+    float yBottom = pos.y - height / 2.0f;
+
+    // ’¸“_‚ğŒvZ‚µ‚Äü‚ğ•`‰æ
+    for (int i = 0; i < division; i++)
+    {
+        float angle1 = 2.0f * DX_PI_F * i / division;
+        float angle2 = 2.0f * DX_PI_F * (i + 1) / division;
+
+        VECTOR top1 = VGet(pos.x + cosf(angle1) * radius, yTop, pos.z + sinf(angle1) * radius);
+        VECTOR top2 = VGet(pos.x + cosf(angle2) * radius, yTop, pos.z + sinf(angle2) * radius);
+        VECTOR bottom1 = VGet(pos.x + cosf(angle1) * radius, yBottom, pos.z + sinf(angle1) * radius);
+        VECTOR bottom2 = VGet(pos.x + cosf(angle2) * radius, yBottom, pos.z + sinf(angle2) * radius);
+
+        // ‘¤–Ê‚Ìü
+        DrawLine3D(top1, bottom1, color);
+        DrawLine3D(top2, bottom2, color);
+
+        // ã–Ê‚Ìü
+        DrawLine3D(top1, top2, color);
+
+        // ‰º–Ê‚Ìü
+        DrawLine3D(bottom1, bottom2, color);
+    }
 }

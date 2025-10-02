@@ -8,6 +8,7 @@ class Player;
 class EnemySmall;
 class FreeCamera;
 class Sword;
+class CheckPoint;
 class ObjectManager
 {
 public:
@@ -30,4 +31,5 @@ private:
 	std::shared_ptr<Player> player = nullptr;
 	std::shared_ptr<EnemySmall> enemySmall = nullptr;
 	std::shared_ptr<Sword> sword = nullptr;
+	std::shared_ptr<CheckPoint> checkPoint = nullptr;
 };

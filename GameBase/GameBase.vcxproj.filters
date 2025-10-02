@@ -128,6 +128,9 @@
     <Filter Include="ソース ファイル\State\Enemy\EnemySmallState\Damage">
       <UniqueIdentifier>{7664f7ae-31dd-4b83-b4d5-967c4f7959e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameObject\CheckPoint">
+      <UniqueIdentifier>{4bba9e66-6c69-49f5-bad9-6602a1358fb3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -228,6 +231,9 @@
     </ClCompile>
     <ClCompile Include="EnemySmallDamageState.cpp">
       <Filter>ソース ファイル\State\Enemy\EnemySmallState\Damage</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckPoint.cpp">
+      <Filter>ソース ファイル\GameObject\CheckPoint</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -347,6 +353,9 @@
     </ClInclude>
     <ClInclude Include="EnemySmallDamageState.h">
       <Filter>ソース ファイル\State\Enemy\EnemySmallState\Damage</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckPoint.h">
+      <Filter>ソース ファイル\GameObject\CheckPoint</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

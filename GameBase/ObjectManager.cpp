@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Sword.h"
 #include "EnemySmall.h"
+#include "CheckPoint.h"
 void ObjectManager::Create()
 {
 	skyDome = std::make_shared<SkyDome>("SkyDome");
@@ -14,6 +15,7 @@ void ObjectManager::Create()
 	player = std::make_shared<Player>("Player");
 	sword = std::make_shared<Sword>("Sword");
 	enemySmall = std::make_shared<EnemySmall>("EnemySmall");
+	checkPoint = std::make_shared<CheckPoint>("CheckPoint");
 
 
 	sword->SetOwner(player);
@@ -24,6 +26,7 @@ void ObjectManager::Create()
 	AddObject(player);
 	AddObject(sword);
 	AddObject(enemySmall);
+	AddObject(checkPoint);
 }
 
 void ObjectManager::AddObject(std::shared_ptr<IGameObject> obj)
