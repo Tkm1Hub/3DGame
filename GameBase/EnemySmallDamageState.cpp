@@ -6,6 +6,8 @@
 void EnemySmall_DamageState::OnStart()
 {
 	m_moveSpeed = m_pEnemySmall->GetParams().DamageSpeed;
+	m_moveVec = CulcKnockBackVector();
+
 }
 
 void EnemySmall_DamageState::OnUpdate()
@@ -19,9 +21,15 @@ void EnemySmall_DamageState::OnUpdate()
 	}
 	// ノックバック速度を設定
 	m_pEnemySmall->SetMoveSpeed(m_moveSpeed);
+<<<<<<< HEAD
 	// 方向をmoveVecに保存
 	m_pEnemySmall->SetMoveVec(m_pEnemySmall->GetKnockBackDir());
 	
+=======
+	// ノックバック方向ベクトルを設定
+	m_pEnemySmall->SetMoveVec(m_moveVec);
+
+>>>>>>> parent of 87dd04a (9/30)
 	if (m_frameCount > 25)
 	{
 		auto spStandState = std::make_shared<EnemySmall_StandState>();
@@ -31,5 +39,15 @@ void EnemySmall_DamageState::OnUpdate()
 
 void EnemySmall_DamageState::OnExit()
 {
-	m_pEnemySmall->SetDamageFlag(false);
+
+}
+
+VECTOR EnemySmall_DamageState::CulcKnockBackVector()
+{
+	// 敵からプレイヤーへの方向ベクトルを取得
+	VECTOR KnockBackDirection = m_pEnemySmall->GetDirectionToPlayer();
+	// 方向を反転
+	KnockBackDirection = VScale(KnockBackDirection, -1.0f);
+
+	return KnockBackDirection;
 }

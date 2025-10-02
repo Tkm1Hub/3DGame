@@ -58,12 +58,16 @@ void CollisionManager::CheckSwordEnemyCollision()
 {
     if (CheckCapsuleCollision(m_pEnemySmall, m_pSword))
     {
+<<<<<<< HEAD
         if (!m_pEnemySmall->GetDamageFlag())
         {
             m_pEnemySmall->SetDamageFlag(true);
             VECTOR knockBackDirection = CulcKnockBackDirection();
             m_pEnemySmall->SetKnockBackDir(knockBackDirection);
         }
+=======
+        m_pEnemySmall->SetDamageFlag(true);
+>>>>>>> parent of 87dd04a (9/30)
     }
 
 }
@@ -171,6 +175,7 @@ float CollisionManager::DistanceSegmentToSegment(VECTOR p1, VECTOR q1, VECTOR p2
 
     return VSize(VSub(c1, c2));
 }
+<<<<<<< HEAD
 
 VECTOR CollisionManager::CulcKnockBackDirection()
 {
@@ -204,3 +209,5 @@ VECTOR CollisionManager::GetEnemyToPlayerVec()
 
     return enemyToPlayerVec;
 }
+=======
+>>>>>>> parent of 87dd04a (9/30)

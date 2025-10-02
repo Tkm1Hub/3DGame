@@ -15,7 +15,7 @@ void EnemySmall_StandState::OnUpdate()
 	// ダメージを食らったらステート変更
 	if (m_pEnemySmall->GetDamageFlag())
 	{
-		auto spDamageState = std::make_shared<EnemySmall_DamageState>();
+		auto spDamageState = std::shared_ptr<EnemySmall_DamageState>();
 		m_pEnemySmall->ChangeState(spDamageState);
 	}
 }

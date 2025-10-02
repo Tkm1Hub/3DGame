@@ -18,6 +18,7 @@ void ObjectManager::Create()
 
 	sword->SetOwner(player);
 	skyDome->SetOwner(player);
+	enemySmall->SetPlayer(player);
 
 	AddObject(skyDome);
 	AddObject(stage);
