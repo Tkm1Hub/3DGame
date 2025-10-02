@@ -24,6 +24,7 @@ void ObjectManager::Create()
 	AddObject(player);
 	AddObject(sword);
 	AddObject(enemySmall);
+	printf("ObjectManager::Create �Ă΂ꂽ\n");
 }
 
 void ObjectManager::AddObject(std::shared_ptr<IGameObject> obj)

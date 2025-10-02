@@ -17,14 +17,13 @@ void CameraSelector::Update(std::shared_ptr<MainCamera>& mainCamera)
         return;
     }
 
-	auto& currentCam = (*cameraList)[currentIndex];
+    auto& currentCam = (*cameraList)[currentIndex];
 
-	VECTOR nextPos = VGet(0.0f, 0.0f, 0.0f);
-	VECTOR nextTarget = VGet(0.0f, 0.0f, 0.0f);
+    VECTOR nextPos = VGet(0.0f, 0.0f, 0.0f);
+    VECTOR nextTarget = VGet(0.0f, 0.0f, 0.0f);
 
-	nextPos = currentCam->GetPosition();
-	nextTarget = currentCam->GetTarget();
+    nextPos = currentCam->GetPosition();
+    nextTarget = currentCam->GetTarget();
 
-	mainCamera->SetCameraPositionAndTarget(nextPos, nextTarget);
-	
+    mainCamera->SetCameraPositionAndTarget(nextPos, nextTarget);
 }
